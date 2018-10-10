@@ -76,4 +76,12 @@ if __name__ == "__main__":
 	data_arrays = [stream_data, sketch1_data, sketch2_data, sketch3_data, sketch4_data]
 	plot_multilines(data_arrays, 15, 45, ['--', '-', '-', '-', '-'], ['stream', '|S| = 500', '|S| = 1,000', '|S| = 2,000', '|S| = 3,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/sketch.pdf")
 
+	# plot the performance with various batch sizes
+	batch1_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-300.txt")
+	batch2_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-500.txt")
+	batch3_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-1000.txt")
+	batch4_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-1500.txt")
+	batch5_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-2000.txt")
+	data_arrays = [stream_data, batch1_data, batch2_data, batch3_data, batch4_data, batch5_data]
+	plot_multilines(data_arrays, 20, 45, ['--', '-', '-', '-', '-', '-'], ['stream', 'Batch = 300', 'Batch = 500', 'Batch = 1000', 'Batch = 1500', 'Batch = 2000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/batch.pdf")
 
