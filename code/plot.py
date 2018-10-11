@@ -31,7 +31,7 @@ def plot_multilines(data_arrays, tick_interval, xlabelrotation, linestyle_array,
 	# set x-axis ticks to be every @tick_interval 
 	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
 	# set x-axis smallest value to be 0
-	ax.set_xlim(left=0)
+	ax.set_xlim(left=0, right=475)
 	# set y-axis smallest value to be 0
 	ax.set_ylim(bottom=0)
 	# tick appearance
