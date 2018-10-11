@@ -56,33 +56,43 @@ if __name__ == "__main__":
 
 	# plot the performance between streaming and analyzing
 	stream_data = import_data("../data/stream-wget-attack-baseline-0.txt")
-	analyze_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000.txt")
-	data_arrays = [stream_data, analyze_data]
-	plot_multilines(data_arrays, 25, 45, ['--', '-'], ['.', '.'], ['stream', 'analyze'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/stream_analyze.pdf")
+	# analyze_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000.txt")
+	# data_arrays = [stream_data, analyze_data]
+	# plot_multilines(data_arrays, 25, 45, ['--', '-'], ['.', '.'], ['stream', 'analyze'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/stream_analyze.pdf")
 
 	# plot the performance with different hop counts
-	hop1_data = import_data("../data/perf-wget-attack-baseline-0-hop-1-l-2000.txt")
-	hop2_data = import_data("../data/perf-wget-attack-baseline-0-hop-2-l-2000.txt")
-	hop3_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000.txt")
-	hop4_data = import_data("../data/perf-wget-attack-baseline-0-hop-4-l-2000.txt")
-	hop5_data = import_data("../data/perf-wget-attack-baseline-0-hop-5-l-2000.txt")
+	hop1_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-1-w-450-i-3000.txt")
+	hop2_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-2-w-450-i-3000.txt")
+	hop3_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-3000.txt")
+	hop4_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-4-w-450-i-3000.txt")
+	hop5_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-5-w-450-i-3000.txt")
 	data_arrays = [stream_data, hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
 	plot_multilines(data_arrays, 25, 45, ['--', '-', '-', '-', '-', '-'], ['.', '|', 'x', '*', 'o', '^'], ['stream', 'Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/hop.pdf")
 
 	# plot the performance with various sketch sizes
-	sketch1_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-500.txt")
-	sketch2_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-1000.txt")
-	sketch3_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000.txt")
-	sketch4_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-3000.txt")
-	data_arrays = [stream_data, sketch1_data, sketch2_data, sketch3_data, sketch4_data]
-	plot_multilines(data_arrays, 25, 45, ['--', '-', '-', '-', '-'], ['.', '|', 'x', '*', 'o'], ['stream', '|S| = 500', '|S| = 1,000', '|S| = 2,000', '|S| = 3,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/sketch.pdf")
+	sketch1_data = import_data("../data/perf-wget-attack-baseline-0-s-500-h-3-w-450-i-3000.txt")
+	sketch2_data = import_data("../data/perf-wget-attack-baseline-0-s-1000-h-3-w-450-i-3000.txt")
+	sketch3_data = import_data("../data/perf-wget-attack-baseline-0-s-1500-h-3-w-450-i-3000.txt")
+	sketch4_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-3000.txt")
+	sketch5_data = import_data("../data/perf-wget-attack-baseline-0-s-3000-h-3-w-450-i-3000.txt")
+	data_arrays = [stream_data, sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
+	plot_multilines(data_arrays, 25, 45, ['--', '-', '-', '-', '-', '-'], ['.', '|', 'x', '*', 'o', '^'], ['stream', '|S| = 500', '|S| = 1,000', '|S| = 1,500', '|S| = 2,000', '|S| = 3,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/sketch.pdf")
 
 	# plot the performance with various batch sizes
-	batch1_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-300.txt")
-	batch2_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-500.txt")
-	batch3_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-1000.txt")
-	batch4_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-1500.txt")
-	batch5_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000-w-2000.txt")
+	batch1_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-500.txt")
+	batch2_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-1000.txt")
+	batch3_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-1500.txt")
+	batch4_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-2000.txt")
+	batch5_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-3000.txt")
 	data_arrays = [stream_data, batch1_data, batch2_data, batch3_data, batch4_data, batch5_data]
-	plot_multilines(data_arrays, 25, 45, ['--', '-', '-', '-', '-', '-'], ['.', '|', 'x', '*', 'o', '^'], ['stream', 'Batch = 300', 'Batch = 500', 'Batch = 1000', 'Batch = 1500', 'Batch = 2000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/batch.pdf")
+	plot_multilines(data_arrays, 25, 45, ['--', '-', '-', '-', '-', '-'], ['.', '|', 'x', '*', 'o', '^'], ['stream', 'Batch = 500', 'Batch = 1,000', 'Batch = 1,500', 'Batch = 2,000', 'Batch = 3,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/batch.pdf")
+
+	# plot the performance with various window sizes
+	window1_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-200-i-3000.txt")
+	window2_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-3000.txt")
+	window3_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-500-i-3000.txt")
+	window4_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-1000-i-3000.txt")
+	window5_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-2000-i-3000.txt")
+	data_arrays = [stream_data, window1_data, window2_data, window3_data, window4_data, window5_data]
+	plot_multilines(data_arrays, 25, 45, ['--', '-', '-', '-', '-', '-'], ['.', '|', 'x', '*', 'o', '^'], ['stream', 'Interval = 200', 'Interval = 450', 'Interval = 500', 'Interval = 1,000', 'Interval = 2,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/interval.pdf")
 
