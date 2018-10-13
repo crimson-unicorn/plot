@@ -27,7 +27,7 @@ def plot_multilines(data_arrays, tick_interval, xlabelrotation, color_array, lin
 	for pos, line in enumerate(data_arrays):
 		marker_style = dict(color=color_array[pos], linestyle=linestyle_array[pos], marker=markerstyle_array[pos], markevery=tick_interval)
 		timeline = np.arange(1, len(line) + 1)
-		draw_line, = ax.plot(timeline, line, label=legend_array[pos], **marker_style)
+		draw_line = ax.plot(timeline, line, label=legend_array[pos], **marker_style)
 	# set x-axis ticks to be every @tick_interval 
 	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
 	# set x-axis smallest value to be 0
