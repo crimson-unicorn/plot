@@ -158,7 +158,7 @@ if __name__ == "__main__":
 	hop3_data = import_float_data("../data/hop-accuracy-perf.txt")
 	hop4_data = import_float_data("../data/hop-f-measure-perf.txt")
 	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data]
-	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['1', '2', '3', '4', '5'], 'Hops', 'Rate', "../plot/hop-eval.pdf", True)
+	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['1', '2', '3 (Baseline)', '4', '5'], 'Hops', 'Rate', "../plot/hop-eval.pdf", True)
 
 	# plot the eval with various sketch sizes
 	sketch1_data = import_float_data("../data/sketch-precision-perf.txt")
@@ -166,7 +166,7 @@ if __name__ == "__main__":
 	sketch3_data = import_float_data("../data/sketch-accuracy-perf.txt")
 	sketch4_data = import_float_data("../data/sketch-f-measure-perf.txt")
 	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data]
-	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['500', '1000', '1500', '2000', '3000'], 'Sketch Size', 'Rate', "../plot/sketch-eval.pdf", False)
+	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['500', '1000', '1500', '2000 (Baseline)', '3000'], 'Sketch Size', 'Rate', "../plot/sketch-eval.pdf", False)
 
 	# plot the eval with various window sizes
 	window1_data = import_float_data("../data/window-precision-perf.txt")
@@ -174,4 +174,4 @@ if __name__ == "__main__":
 	window3_data = import_float_data("../data/window-accuracy-perf.txt")
 	window4_data = import_float_data("../data/window-f-measure-perf.txt")
 	data_arrays = [window1_data, window2_data, window3_data, window4_data]
-	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['200', '450', '500', '1000', '2000'], 'Interval', 'Rate', "../plot/window-eval.pdf", False)
+	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['200', '450 (Baseline)', '500', '1000', '2000'], 'Frequency', 'Rate', "../plot/window-eval.pdf", False)
