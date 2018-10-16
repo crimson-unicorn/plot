@@ -174,4 +174,4 @@ if __name__ == "__main__":
 	window3_data = import_float_data("../data/window-accuracy-perf.txt")
 	window4_data = import_float_data("../data/window-f-measure-perf.txt")
 	data_arrays = [window1_data, window2_data, window3_data, window4_data]
-	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['200', '450 (Baseline)', '500', '1000', '2000'], 'Frequency', 'Rate', "../plot/window-eval.pdf", False)
+	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['200', '450 (Baseline)', '500', '1000', '2000'], 'Interval', 'Rate', "../plot/window-eval.pdf", False)
