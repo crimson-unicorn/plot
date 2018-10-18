@@ -83,7 +83,7 @@ def plot_hist(data_arrays, color_array, legend_array, x_tick_array, xlabel_str, 
 	ind = np.arange(len(data_arrays[0]))
 	width = 0.15 	# the width of the bars
 
-	fig, ax = plt.subplots(figsize=(4, 2))
+	fig, ax = plt.subplots(figsize=(6, 2))
 	hist1 = ax.bar(ind - 3*width/2, data_arrays[0], width, color=color_array[0], label=legend_array[0])
 	hist2 = ax.bar(ind - width/2, data_arrays[1], width, color=color_array[1], label=legend_array[1])
 	hist3 = ax.bar(ind + width/2, data_arrays[2], width, color=color_array[2], label=legend_array[2])
