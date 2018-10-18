@@ -95,7 +95,7 @@ def plot_hist(data_arrays, color_array, legend_array, x_tick_array, xlabel_str, 
 	ax.set_xticks(ind)
 	ax.set_xticklabels(x_tick_array)
 	if with_legend:
-		ax.legend(loc=1, prop={'size': 3.5})
+		ax.legend(loc=9, prop={'size': 6}, bbox_to_anchor=(0.5, -0.3), ncol = 4)
 
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
 
