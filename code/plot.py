@@ -24,7 +24,7 @@ def import_float_data(filepath):
 			data.append(float(line.strip()))
 	return data
 
-def plot_multilines(data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath):
+def plot_multilines(data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend=True, need_right_x_lim=True):
 	"""
 	Plot multiple lines (all encompassed in @data_arrays) in the same figure.
 	x ticks have interval @tick_interval, and the tick labels are rotated at the angle @xlabelrotation.
@@ -41,27 +41,30 @@ def plot_multilines(data_arrays, tick_interval, xlabelrotation, color_array, lin
 	# set x-axis ticks to be every @tick_interval 
 	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
 	# set x-axis smallest value to be 0
-	ax.set_xlim(left=0, right=475)
+	if need_right_x_lim:
+		ax.set_xlim(left=0, right=475)
+	else:
+		ax.set_xlim(left=0)
 	# set y-axis smallest value to be 0
 	ax.set_ylim(bottom=0)
 	# tick appearance
 	ax.tick_params(axis='x', labelrotation=xlabelrotation)
 	# create legend for both lines
-	ax.legend(loc=legend_loc, shadow=False)
+	if need_legend:
+		ax.legend(loc=legend_loc, shadow=False)
 	# set labels
 	ax.set_xlabel(xlabel_str)
 	ax.set_ylabel(ylabel_str)
 
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
 
-def plot_scatters(x_data, data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath):
+def plot_scatters(data_arrays, tick_interval, xlabelrotation, color_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend):
 	fig, ax = plt.subplots()
 	# create x-axes for all plots in @data_arrays and plot all of them
 	for pos, line in enumerate(data_arrays):
-		# scatter_style = dict(color=color_array[pos], s=30, marker=markerstyle_array[pos])
-		# draw_line = ax.scatter(timeline, line, label=legend_array[pos], **scatter_style)
-		marker_style = dict(color=color_array[pos], linestyle=linestyle_array[pos], marker=markerstyle_array[pos])
-		draw_line = ax.plot(x_data, line, label=legend_array[pos], **marker_style)
+		scatter_style = dict(color=color_array[pos], s=10, marker=markerstyle_array[pos])
+		timeline = np.arange(1, len(line) + 1)
+		draw_line = ax.scatter(timeline, line, label=legend_array[pos], **scatter_style)
 	# set x-axis ticks to be every @tick_interval 
 	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
 	# set x-axis smallest value to be 0
@@ -71,7 +74,8 @@ def plot_scatters(x_data, data_arrays, tick_interval, xlabelrotation, color_arra
 	# tick appearance
 	ax.tick_params(axis='x', labelrotation=xlabelrotation)
 	# create legend for both lines
-	ax.legend(loc=legend_loc, shadow=False)
+	if need_legend:
+		ax.legend(loc=legend_loc, shadow=False)
 	# set labels
 	ax.set_xlabel(xlabel_str)
 	ax.set_ylabel(ylabel_str)
@@ -175,3 +179,82 @@ if __name__ == "__main__":
 	window4_data = import_float_data("../data/window-f-measure-perf.txt")
 	data_arrays = [window1_data, window2_data, window3_data, window4_data]
 	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['200', '450 (Baseline)', '500', '1000', '2000'], 'Interval', 'Rate', "../plot/window-eval.pdf", False)
+
+	# plot CPU usage for various hop counts
+	hop1_data = import_float_data("../data/cpu-s-2000-h-1-w-450-i-3000.txt")
+	hop2_data = import_float_data("../data/cpu-s-2000-h-2-w-450-i-3000.txt")
+	hop3_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-3000.txt")
+	hop4_data = import_float_data("../data/cpu-s-2000-h-4-w-450-i-3000.txt")
+	hop5_data = import_float_data("../data/cpu-s-2000-h-5-w-450-i-3000.txt")
+	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Hop = 1', 'Hop = 2', 'Hop = 3 (Baseline)', 'Hop = 4', 'Hop = 5'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/cpu-hop.pdf", True)
+
+	# plot Memory usage for various hop counts
+	hop1_data = import_float_data("../data/mem-s-2000-h-1-w-450-i-3000.txt")
+	hop2_data = import_float_data("../data/mem-s-2000-h-2-w-450-i-3000.txt")
+	hop3_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-3000.txt")
+	hop4_data = import_float_data("../data/mem-s-2000-h-4-w-450-i-3000.txt")
+	hop5_data = import_float_data("../data/mem-s-2000-h-5-w-450-i-3000.txt")
+	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Hop = 1', 'Hop = 2', 'Hop = 3 (Baseline)', 'Hop = 4', 'Hop = 5'], 'upper left', 'Time (seconds)', 'Memory Usage (MB)', "../plot/mem-hop.pdf", True)
+
+	# plot CPU usage for various sketch sizes
+	sketch1_data = import_float_data("../data/cpu-s-500-h-3-w-450-i-3000.txt")
+	sketch2_data = import_float_data("../data/cpu-s-1000-h-3-w-450-i-3000.txt")
+	sketch3_data = import_float_data("../data/cpu-s-1500-h-3-w-450-i-3000.txt")
+	sketch4_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-3000.txt")
+	sketch5_data = import_float_data("../data/cpu-s-3000-h-3-w-450-i-3000.txt")
+	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['|S| = 500', '|S| = 1,000', '|S| = 1,500', '|S| = 2,000 (Baseline)', '|S| = 3,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/cpu-sketch.pdf", True)
+
+	# plot Memory usage for various sketch sizes
+	sketch1_data = import_float_data("../data/mem-s-500-h-3-w-450-i-3000.txt")
+	sketch2_data = import_float_data("../data/mem-s-1000-h-3-w-450-i-3000.txt")
+	sketch3_data = import_float_data("../data/mem-s-1500-h-3-w-450-i-3000.txt")
+	sketch4_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-3000.txt")
+	sketch5_data = import_float_data("../data/mem-s-3000-h-3-w-450-i-3000.txt")
+	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['|S| = 500', '|S| = 1,000', '|S| = 1,500', '|S| = 2,000 (Baseline)', '|S| = 3,000'], 'upper left', 'Time (seconds)', 'Memory Usage (MB)', "../plot/mem-sketch.pdf", True)
+
+	# plot CPU usage for various batch sizes
+	batch1_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-1500.txt")
+	batch2_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-2000.txt")
+	batch3_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-3000.txt")
+	batch4_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-5000.txt")
+	batch5_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-10000.txt")
+	data_arrays = [batch1_data, batch2_data, batch3_data, batch4_data, batch5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Batch = 1,500', 'Batch = 2,000', 'Batch = 3,000 (Baseline)', 'Batch = 5,000', 'Batch = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/cpu-batch.pdf", True)
+
+	# plot Memory usage for various batch sizes
+	batch1_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-1500.txt")
+	batch2_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-2000.txt")
+	batch3_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-3000.txt")
+	batch4_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-5000.txt")
+	batch5_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-10000.txt")
+	data_arrays = [batch1_data, batch2_data, batch3_data, batch4_data, batch5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Batch = 1,500', 'Batch = 2,000', 'Batch = 3,000 (Baseline)', 'Batch = 5,000', 'Batch = 10,000'], 'upper left', 'Time (seconds)', 'Memory Usage (MB)', "../plot/mem-batch.pdf", True)
+
+	# plot CPU usage for various intervals
+	window1_data = import_float_data("../data/cpu-s-2000-h-3-w-200-i-3000.txt")
+	window2_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-3000.txt")
+	window3_data = import_float_data("../data/cpu-s-2000-h-3-w-500-i-3000.txt")
+	window4_data = import_float_data("../data/cpu-s-2000-h-3-w-1000-i-3000.txt")
+	window5_data = import_float_data("../data/cpu-s-2000-h-3-w-2000-i-3000.txt")
+	data_arrays = [window1_data, window2_data, window3_data, window4_data, window5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Interval = 200', 'Interval = 450 (Baseline)', 'Interval = 500', 'Interval = 1,000', 'Interval = 2,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/cpu-interval.pdf", True)
+
+	# plot Memory usage for various intervals
+	window1_data = import_float_data("../data/mem-s-2000-h-3-w-200-i-3000.txt")
+	window2_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-3000.txt")
+	window3_data = import_float_data("../data/mem-s-2000-h-3-w-500-i-3000.txt")
+	window4_data = import_float_data("../data/mem-s-2000-h-3-w-1000-i-3000.txt")
+	window5_data = import_float_data("../data/mem-s-2000-h-3-w-2000-i-3000.txt")
+	data_arrays = [window1_data, window2_data, window3_data, window4_data, window5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Interval = 200', 'Interval = 450 (Baseline)', 'Interval = 500', 'Interval = 1,000', 'Interval = 2,000'], 'upper left', 'Time (seconds)', 'Memory Usage (MB)', "../plot/mem-interval.pdf", True)
+
+
+
+
+
+
+
