@@ -4,6 +4,7 @@ from matplotlib.legend_handler import HandlerLineCollection, HandlerTuple
 import matplotlib.ticker as ticker
 import numpy as np
 
+
 def import_data(filepath):
 	"""
 	Import data file @filepath to plot. 
@@ -14,6 +15,7 @@ def import_data(filepath):
 			data.append(int(line.strip()))
 	return data
 
+
 def import_float_data(filepath):
 	"""
 	Import data file @filepath to plot. 
@@ -23,6 +25,7 @@ def import_float_data(filepath):
 		for line in f:
 			data.append(float(line.strip()))
 	return data
+
 
 def plot_multilines(data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend=True, need_right_x_lim=True):
 	"""
@@ -58,6 +61,7 @@ def plot_multilines(data_arrays, tick_interval, xlabelrotation, color_array, lin
 
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
 
+
 def plot_scatters(data_arrays, tick_interval, xlabelrotation, color_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend, need_upper_y_lim=False):
 	fig, ax = plt.subplots()
 	# create x-axes for all plots in @data_arrays and plot all of them
@@ -85,6 +89,7 @@ def plot_scatters(data_arrays, tick_interval, xlabelrotation, color_array, marke
 
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
 
+
 def plot_hist(data_arrays, color_array, legend_array, x_tick_array, xlabel_str, ylabel_str, savefilepath, with_legend):
 	# the x locations for each group
 	ind = np.arange(len(data_arrays[0]))
@@ -105,6 +110,7 @@ def plot_hist(data_arrays, color_array, legend_array, x_tick_array, xlabel_str, 
 		ax.legend(loc=9, prop={'size': 6}, bbox_to_anchor=(0.5, -0.3), ncol = 4)
 
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
+
 
 def plot_perf(data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend=True, need_right_x_lim=True, y_value_interval=2000):
 	"""Plot CamFlow vs Unicorn performance data. i.e., the number of edges each system processes v.s. the time it takes.
@@ -128,9 +134,11 @@ def plot_perf(data_arrays, tick_interval, xlabelrotation, color_array, linestyle
 
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
 
+
 def print_instruction():
 	print(
 		"Usage: python plot.py\n")
+
 
 if __name__ == "__main__":
 	
