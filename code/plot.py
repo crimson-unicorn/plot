@@ -62,6 +62,39 @@ def plot_multilines(data_arrays, tick_interval, xlabelrotation, color_array, lin
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
 
 
+def plot_multilines_x(x_arrays, data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend=True, need_right_x_lim=True):
+	"""
+	Plot multiple lines (all encompassed in @data_arrays) in the same figure.
+	x ticks have interval @tick_interval, and the tick labels are rotated at the angle @xlabelrotation.
+	Each line has legend included in @legend_array which is located at @legend_loc, color style @color_array, line style @linestyle_array, and marker style @markerstyle_array.
+	x and y labels are named by @xlabel_str and @ylabel_str.
+	The resulting plot is saved in @savefilepath.
+	"""
+	fig, ax = plt.subplots()
+	# create x-axes for all plots in @data_arrays and plot all of them
+	for pos, line in enumerate(data_arrays):
+		marker_style = dict(color=color_array[pos], linestyle=linestyle_array[pos], linewidth=0.5)
+		draw_line = ax.plot(x_arrays[pos], line, label=legend_array[pos], **marker_style)
+	# set x-axis ticks to be every @tick_interval 
+	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
+	# set x-axis smallest value to be 0
+	if need_right_x_lim:
+		ax.set_xlim(left=0)
+	else:
+		ax.set_xlim(left=0)
+	# set y-axis smallest value to be 0
+	ax.set_ylim(bottom=0)
+	# tick appearance
+	ax.tick_params(axis='x', labelrotation=xlabelrotation)
+	# create legend for both lines
+	if need_legend:
+		ax.legend(loc=legend_loc, shadow=False)
+	# set labels
+	ax.set_xlabel(xlabel_str)
+	ax.set_ylabel(ylabel_str)
+
+	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
+
 def plot_scatters(data_arrays, tick_interval, xlabelrotation, color_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend, need_upper_y_lim=False):
 	fig, ax = plt.subplots()
 	# create x-axes for all plots in @data_arrays and plot all of them
@@ -76,6 +109,34 @@ def plot_scatters(data_arrays, tick_interval, xlabelrotation, color_array, marke
 	# set y-axis smallest value to be 0
 	if need_upper_y_lim:
 		ax.set_ylim(bottom=0, top=100)
+	else:
+		ax.set_ylim(bottom=0)
+	# tick appearance
+	ax.tick_params(axis='x', labelrotation=xlabelrotation)
+	# create legend for both lines
+	if need_legend:
+		ax.legend(loc=legend_loc, shadow=False)
+	# set labels
+	ax.set_xlabel(xlabel_str)
+	ax.set_ylabel(ylabel_str)
+
+	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
+
+
+def plot_scatters_x(x_arrays, data_arrays, tick_interval, xlabelrotation, color_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend, need_upper_y_lim=False):
+	fig, ax = plt.subplots()
+	# create x-axes for all plots in @data_arrays and plot all of them
+	for pos, line in enumerate(data_arrays):
+		scatter_style = dict(color=color_array[pos], s=10, marker=markerstyle_array[pos])
+		x_array = x_arrays[pos]
+		draw_line = ax.scatter(x_array, line, label=legend_array[pos], **scatter_style)
+	# set x-axis ticks to be every @tick_interval 
+	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
+	# set x-axis smallest value to be 0
+	ax.set_xlim(left=0)
+	# set y-axis smallest value to be 0
+	if need_upper_y_lim:
+		ax.set_ylim(bottom=0)
 	else:
 		ax.set_ylim(bottom=0)
 	# tick appearance
@@ -146,17 +207,98 @@ if __name__ == "__main__":
 		print_instruction()
 		sys.exit(1)
 
-	camflow_perf_data = import_float_data("out.txt")
-	unicorn_perf_data = import_float_data("stats.txt")
-	data_arrays = [camflow_perf_data, unicorn_perf_data]
-	plot_perf(data_arrays, 1, 0, ['#1f77b4', '#ff7f0e'], ['-', '-'], ['.', '.'], ['camflow', 'unicorn'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "graph.pdf")
-	sys.exit(1)
+	# camflow_perf_data = import_float_data("out.txt")
+	# unicorn_perf_data = import_float_data("stats.txt")
+	# data_arrays = [camflow_perf_data, unicorn_perf_data]
+	# plot_perf(data_arrays, 1, 0, ['#1f77b4', '#ff7f0e'], ['-', '-'], ['.', '.'], ['camflow', 'unicorn'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "graph.pdf")
 
+	x1_data = import_float_data("../../parsers/camflow/eval/ts-camflow-benign-0-w-1000-i-6000-post.txt")
+	x2_data = import_float_data("../../parsers/camflow/eval/perf-wget-s-2000-h-3-w-500-i-6000.txt")
+	x3_data = import_float_data("../../parsers/camflow/eval/perf-wget-s-2000-h-3-w-1000-i-6000.txt")
+	x4_data = import_float_data("../../parsers/camflow/eval/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
+	x5_data = import_float_data("../../parsers/camflow/eval/perf-wget-s-2000-h-3-w-5500-i-6000.txt")
+	x_arrays = [x1_data, x2_data, x3_data, x4_data, x5_data]
+	y1_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000-ts.txt")
+	y2_data = import_float_data("../../parsers/camflow/eval/edge-500-6000.txt")
+	y3_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000.txt")
+	y4_data = import_float_data("../../parsers/camflow/eval/edge-3000-6000.txt")
+	y5_data = import_float_data("../../parsers/camflow/eval/edge-5500-6000.txt")
+	data_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
+	plot_multilines_x(x_arrays, data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Unicorn (500)', 'Unicorn (1000)', 'Unicorn (3000)', 'Unicorn (5500)'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/camflow-apt-window.pdf")
+	
+	x1_data = import_float_data("../../parsers/camflow/eval/ts-camflow-benign-0-w-1000-i-6000-post.txt")
+	x2_data = import_float_data("../../core/shellshock/perf-wget-s-2000-h-3-w-3000-i-1000.txt")
+	x3_data = import_float_data("../../core/shellshock/perf-wget-s-2000-h-3-w-3000-i-3000.txt")
+	x4_data = import_float_data("../../core/shellshock/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
+	x5_data = import_float_data("../../core/shellshock/perf-wget-s-2000-h-3-w-3000-i-10000.txt")
+	x_arrays = [x1_data, x2_data, x3_data, x4_data, x5_data]
+	y1_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000-ts.txt")
+	y2_data = import_float_data("../../core/shellshock/edge-3000-1000.txt")
+	y3_data = import_float_data("../../core/shellshock/edge-3000-3000.txt")
+	y4_data = import_float_data("../../core/shellshock/edge-3000-6000.txt")
+	y5_data = import_float_data("../../core/shellshock/edge-3000-10000.txt")
+	data_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
+	plot_multilines_x(x_arrays, data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Unicorn (1000)', 'Unicorn (3000)', 'Unicorn (6000)', 'Unicorn (10000)'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/camflow-apt-interval.pdf")
+	
+	x1_data = import_float_data("../../parsers/camflow/eval/ts-camflow-benign-0-w-1000-i-6000-post.txt")
+	x2_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-1-w-3000-i-6000.txt")
+	x3_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-2-w-3000-i-6000.txt")
+	x4_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
+	x5_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-4-w-3000-i-6000.txt")
+	x6_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-5-w-3000-i-6000.txt")
+	x_arrays = [x1_data, x2_data, x3_data, x4_data, x5_data, x6_data]
+	y1_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000-ts.txt")
+	y2_data = import_float_data("../../core/shellshock/edge-3000-6000.txt")
+	data_arrays = [y1_data, y2_data, y2_data, y2_data, y2_data, y2_data]
+	plot_multilines_x(x_arrays, data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '.', '.', '.', '.', '.'], ['CamFlow', 'Unicorn (1)', 'Unicorn (2)', 'Unicorn (3)', 'Unicorn (4)', 'Unicorn (5)'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/camflow-apt-hop.pdf")
+
+	x1_data = import_float_data("../../parsers/camflow/eval/ts-camflow-benign-0-w-1000-i-6000-post.txt")
+	x2_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-500-h-3-w-3000-i-6000.txt")
+	x3_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-1000-h-3-w-3000-i-6000.txt")
+	x4_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
+	x5_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-5000-h-3-w-3000-i-6000.txt")
+	x6_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-10000-h-3-w-3000-i-6000.txt")
+	x_arrays = [x1_data, x2_data, x3_data, x4_data, x5_data, x6_data]
+	y1_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000-ts.txt")
+	y2_data = import_float_data("../../core/shellshock/edge-3000-6000.txt")
+	data_arrays = [y1_data, y2_data, y2_data, y2_data, y2_data, y2_data]
+	plot_multilines_x(x_arrays, data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '.', '.', '.', '.', '.'], ['CamFlow', 'Unicorn (500)', 'Unicorn (1000)', 'Unicorn (2000)', 'Unicorn (5000)', 'Unicorn (10000)'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/camflow-apt-sketch.pdf")
+	
+	# plot CPU usage for various intervals
+	window1_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-1000.txt")
+	window2_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-3000.txt")
+	window3_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
+	window4_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-10000.txt")
+	data_arrays = [window1_data, window2_data, window3_data, window4_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/camflow-apt-cpu-interval.pdf", True, True)
+	
+	# plot Memory usage for various intervals
+	window1_data = import_float_data("../../core/shellshock/perf-wget-mem-s-2000-h-3-w-3000-i-1000.txt")
+	window2_data = import_float_data("../../core/shellshock/perf-wget-mem-s-2000-h-3-w-3000-i-3000.txt")
+	window3_data = import_float_data("../../core/shellshock/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
+	window4_data = import_float_data("../../core/shellshock/perf-wget-mem-s-2000-h-3-w-3000-i-10000.txt")
+	data_arrays = [window1_data, window2_data, window3_data, window4_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/camflow-apt-mem-interval.pdf", True)
+
+	# plot CPU usage for each vCPU and on average
+	average_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
+	cpu0_data = import_float_data("../../core/shellshock/cpu-0.txt")
+	cpu1_data = import_float_data("../../core/shellshock/cpu-1.txt")
+	cpu2_data = import_float_data("../../core/shellshock/cpu-2.txt")
+	cpu3_data = import_float_data("../../core/shellshock/cpu-3.txt")
+	cpu4_data = import_float_data("../../core/shellshock/cpu-4.txt")
+	cpu5_data = import_float_data("../../core/shellshock/cpu-5.txt")
+	cpu6_data = import_float_data("../../core/shellshock/cpu-6.txt")
+	cpu7_data = import_float_data("../../core/shellshock/cpu-7.txt")
+	data_arrays = [average_data, cpu0_data, cpu1_data, cpu2_data, cpu3_data, cpu4_data, cpu5_data, cpu6_data, cpu7_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#cb416b', '#380282', '#01153e'], ['.', '|', 'x', '*', '8', 's', 'p', 'P', '1'], ['Average CPU', 'vCPU 0', 'vCPU 1', 'vCPU 2', 'vCPU 3', 'vCPU 4', 'vCPU 5', 'vCPU 6', 'vCPU 7'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/camflow-apt-per-cpu.pdf", True, True)
+	exit()
+	
 	# plot the performance between streaming and analyzing
 	stream_data = import_data("../data/stream-wget-attack-baseline-0.txt")
-	# analyze_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000.txt")
-	# data_arrays = [stream_data, analyze_data]
-	# plot_multilines(data_arrays, 25, 45, ['--', '-'], ['.', '.'], ['stream', 'analyze'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/stream_analyze.pdf")
+	analyze_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000.txt")
+	data_arrays = [stream_data, analyze_data]
+	plot_multilines(data_arrays, 25, 45, ['--', '-'], ['.', '.'], ['stream', 'analyze'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/stream_analyze.pdf")
 
 	# plot the performance with different hop counts
 	hop1_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-1-w-450-i-3000.txt")

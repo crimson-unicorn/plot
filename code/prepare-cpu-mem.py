@@ -11,11 +11,11 @@ def decompose(input_file, mem_filepath, cpu_filepath):
 			if data[0] == '%CPU':
 				next_is_mem = True
 				next_is_cpu = False
-				cpu.write(str(float(cpu_val) / 4) + '\n')
+				cpu.write(str(float(cpu_val) / 8) + '\n')
 				cpu_val = 0.0
 				continue
 			if next_is_mem:
-				mem.write(str(float(data[1]) * 4096 * 0.01) + '\n')
+				mem.write(str(float(data[1]) * 61 * 1024 * 0.01) + '\n')
 				next_is_mem = False
 				continue
 			if data[0] == 'PSR':
@@ -29,6 +29,14 @@ def decompose(input_file, mem_filepath, cpu_filepath):
 				elif data[0] == '2':
 					cpu_val += float(data[1])
 				elif data[0] == '3':
+					cpu_val += float(data[1])
+				elif data[0] == '4':
+					cpu_val += float(data[1])
+				elif data[0] == '5':
+					cpu_val += float(data[1])
+				elif data[0] == '6':
+					cpu_val += float(data[1])
+				elif data[0] == '7':
 					cpu_val += float(data[1])
 
 	f.close()
