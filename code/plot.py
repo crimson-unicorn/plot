@@ -62,7 +62,7 @@ def plot_multilines(data_arrays, tick_interval, xlabelrotation, color_array, lin
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
 
 
-def plot_multilines_x(x_arrays, data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend=True, need_right_x_lim=True):
+def plot_multilines_x(x_arrays, data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend=True, need_right_x_lim=True, linewidth=0.5):
 	"""
 	Plot multiple lines (all encompassed in @data_arrays) in the same figure.
 	x ticks have interval @tick_interval, and the tick labels are rotated at the angle @xlabelrotation.
@@ -73,7 +73,7 @@ def plot_multilines_x(x_arrays, data_arrays, tick_interval, xlabelrotation, colo
 	fig, ax = plt.subplots()
 	# create x-axes for all plots in @data_arrays and plot all of them
 	for pos, line in enumerate(data_arrays):
-		marker_style = dict(color=color_array[pos], linestyle=linestyle_array[pos], linewidth=0.5)
+		marker_style = dict(color=color_array[pos], linestyle=linestyle_array[pos], linewidth=linewidth)
 		draw_line = ax.plot(x_arrays[pos], line, label=legend_array[pos], **marker_style)
 	# set x-axis ticks to be every @tick_interval 
 	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
@@ -116,6 +116,36 @@ def plot_scatters(data_arrays, tick_interval, xlabelrotation, color_array, marke
 	# create legend for both lines
 	if need_legend:
 		ax.legend(loc=legend_loc, shadow=False)
+	# set labels
+	ax.set_xlabel(xlabel_str)
+	ax.set_ylabel(ylabel_str)
+
+	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
+
+def plot_scatters_legend_out(data_arrays, tick_interval, xlabelrotation, color_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend, need_upper_y_lim=False):
+	"""
+	Same as plot_scatters except legend_loc param is used as "ncol" and legend is located outside the plot box.
+	"""
+	fig, ax = plt.subplots()
+	# create x-axes for all plots in @data_arrays and plot all of them
+	for pos, line in enumerate(data_arrays):
+		scatter_style = dict(color=color_array[pos], s=10, marker=markerstyle_array[pos])
+		timeline = np.arange(1, len(line) + 1)
+		draw_line = ax.scatter(timeline, line, label=legend_array[pos], **scatter_style)
+	# set x-axis ticks to be every @tick_interval 
+	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
+	# set x-axis smallest value to be 0
+	ax.set_xlim(left=0)
+	# set y-axis smallest value to be 0
+	if need_upper_y_lim:
+		ax.set_ylim(bottom=0, top=100)
+	else:
+		ax.set_ylim(bottom=0)
+	# tick appearance
+	ax.tick_params(axis='x', labelrotation=xlabelrotation)
+	# create legend for both lines
+	if need_legend:
+		ax.legend(loc=9, prop={'size': 6}, bbox_to_anchor=(0.5, -0.2), ncol = legend_loc)
 	# set labels
 	ax.set_xlabel(xlabel_str)
 	ax.set_ylabel(ylabel_str)
@@ -352,4 +382,23 @@ if __name__ == "__main__":
 	cpu6_data = import_float_data("../data/perf_per_cpu/cpu-6.txt")
 	cpu7_data = import_float_data("../data/perf_per_cpu/cpu-7.txt")
 	data_arrays = [average_data, cpu0_data, cpu1_data, cpu2_data, cpu3_data, cpu4_data, cpu5_data, cpu6_data, cpu7_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#cb416b', '#380282', '#01153e'], ['.', '|', 'x', '*', '8', 's', 'p', 'P', '1'], ['Average CPU', 'vCPU 0', 'vCPU 1', 'vCPU 2', 'vCPU 3', 'vCPU 4', 'vCPU 5', 'vCPU 6', 'vCPU 7'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf_per_cpu.pdf", True, True)
+	plot_scatters_legend_out(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#cb416b', '#380282', '#01153e'], ['.', '|', 'x', '*', '8', 's', 'p', 'P', '1'], ['Average CPU', 'vCPU 0', 'vCPU 1', 'vCPU 2', 'vCPU 3', 'vCPU 4', 'vCPU 5', 'vCPU 6', 'vCPU 7'], 9, 'Time (seconds)', '% CPU Usage', "../plot/perf_per_cpu.pdf", True, True)
+
+	# Unicorn detection performance for various sketch sizes
+	x_data = ['500', '1,000', '2,000', '3,000', '10,000']
+	accuracy_data = import_float_data("../data/param_sketch_camflow_subset/param_sketch_accuracy.txt")
+	precision_data = import_float_data("../data/param_sketch_camflow_subset/param_sketch_precision.txt")
+	recall_data = import_float_data("../data/param_sketch_camflow_subset/param_sketch_recall.txt")
+	f_score_data = import_float_data("../data/param_sketch_camflow_subset/param_sketch_f_score.txt")
+	y_arrays = [accuracy_data, precision_data, recall_data, f_score_data]
+	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Sketch Size', 'Rate', "../plot/param-camflow-subset-sketch.pdf", True)
+
+	# Unicorn detection performance for various hops
+	x_data = ['1', '2', '3', '4', '5']
+	accuracy_data = import_float_data("../data/param_hop_camflow_subset/param_hop_accuracy.txt")
+	precision_data = import_float_data("../data/param_hop_camflow_subset/param_hop_precision.txt")
+	recall_data = import_float_data("../data/param_hop_camflow_subset/param_hop_recall.txt")
+	f_score_data = import_float_data("../data/param_hop_camflow_subset/param_hop_f_score.txt")
+	y_arrays = [accuracy_data, precision_data, recall_data, f_score_data]
+	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Hop', 'Rate', "../plot/param-camflow-subset-hop.pdf", True)
+
