@@ -207,234 +207,149 @@ if __name__ == "__main__":
 		print_instruction()
 		sys.exit(1)
 
-	# camflow_perf_data = import_float_data("out.txt")
-	# unicorn_perf_data = import_float_data("stats.txt")
-	# data_arrays = [camflow_perf_data, unicorn_perf_data]
-	# plot_perf(data_arrays, 1, 0, ['#1f77b4', '#ff7f0e'], ['-', '-'], ['.', '.'], ['camflow', 'unicorn'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "graph.pdf")
-
-	x1_data = import_float_data("../../parsers/camflow/eval/ts-camflow-benign-0-w-1000-i-6000-post.txt")
-	x2_data = import_float_data("../../parsers/camflow/eval/perf-wget-s-2000-h-3-w-500-i-6000.txt")
-	x3_data = import_float_data("../../parsers/camflow/eval/perf-wget-s-2000-h-3-w-1000-i-6000.txt")
-	x4_data = import_float_data("../../parsers/camflow/eval/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
-	x5_data = import_float_data("../../parsers/camflow/eval/perf-wget-s-2000-h-3-w-5500-i-6000.txt")
+	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. window size
+	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
+	x2_data = import_float_data("../data/perf_speed_window_unicorn/perf-wget-s-2000-h-3-w-500-i-6000.txt")
+	x3_data = import_float_data("../data/perf_speed_window_unicorn/perf-wget-s-2000-h-3-w-1000-i-6000.txt")
+	x4_data = import_float_data("../data/perf_speed_window_unicorn/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
+	x5_data = import_float_data("../data/perf_speed_window_unicorn/perf-wget-s-2000-h-3-w-5500-i-6000.txt")
 	x_arrays = [x1_data, x2_data, x3_data, x4_data, x5_data]
-	y1_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000-ts.txt")
-	y2_data = import_float_data("../../parsers/camflow/eval/edge-500-6000.txt")
-	y3_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000.txt")
-	y4_data = import_float_data("../../parsers/camflow/eval/edge-3000-6000.txt")
-	y5_data = import_float_data("../../parsers/camflow/eval/edge-5500-6000.txt")
-	data_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
-	plot_multilines_x(x_arrays, data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Unicorn (500)', 'Unicorn (1000)', 'Unicorn (3000)', 'Unicorn (5500)'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/camflow-apt-window.pdf")
+	y1_data = import_float_data("../data/perf_speed_camflow/edge-1000-6000.txt")
+	y2_data = import_float_data("../data/perf_speed_window_unicorn/edge-500-6000.txt")
+	y3_data = import_float_data("../data/perf_speed_window_unicorn/edge-1000-6000.txt")
+	y4_data = import_float_data("../data/perf_speed_window_unicorn/edge-3000-6000.txt")
+	y5_data = import_float_data("../data/perf_speed_window_unicorn/edge-5500-6000.txt")
+	y_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
+	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Window = 500', 'Window = 1,000', 'Window = 3,000', 'Window = 5,500'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-window.pdf")
 	
-	x1_data = import_float_data("../../parsers/camflow/eval/ts-camflow-benign-0-w-1000-i-6000-post.txt")
-	x2_data = import_float_data("../../core/shellshock/perf-wget-s-2000-h-3-w-3000-i-1000.txt")
-	x3_data = import_float_data("../../core/shellshock/perf-wget-s-2000-h-3-w-3000-i-3000.txt")
-	x4_data = import_float_data("../../core/shellshock/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
-	x5_data = import_float_data("../../core/shellshock/perf-wget-s-2000-h-3-w-3000-i-10000.txt")
+	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. interval size
+	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
+	x2_data = import_float_data("../data/perf_speed_interval_unicorn/perf-wget-s-2000-h-3-w-3000-i-1000.txt")
+	x3_data = import_float_data("../data/perf_speed_interval_unicorn/perf-wget-s-2000-h-3-w-3000-i-3000.txt")
+	x4_data = import_float_data("../data/perf_speed_interval_unicorn/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
+	x5_data = import_float_data("../data/perf_speed_interval_unicorn/perf-wget-s-2000-h-3-w-3000-i-10000.txt")
 	x_arrays = [x1_data, x2_data, x3_data, x4_data, x5_data]
-	y1_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000-ts.txt")
-	y2_data = import_float_data("../../core/shellshock/edge-3000-1000.txt")
-	y3_data = import_float_data("../../core/shellshock/edge-3000-3000.txt")
-	y4_data = import_float_data("../../core/shellshock/edge-3000-6000.txt")
-	y5_data = import_float_data("../../core/shellshock/edge-3000-10000.txt")
-	data_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
-	plot_multilines_x(x_arrays, data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Unicorn (1000)', 'Unicorn (3000)', 'Unicorn (6000)', 'Unicorn (10000)'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/camflow-apt-interval.pdf")
+	y1_data = import_float_data("../data/perf_speed_camflow/edge-1000-6000.txt")
+	y2_data = import_float_data("../data/perf_speed_interval_unicorn/edge-3000-1000.txt")
+	y3_data = import_float_data("../data/perf_speed_interval_unicorn/edge-3000-3000.txt")
+	y4_data = import_float_data("../data/perf_speed_interval_unicorn/edge-3000-6000.txt")
+	y5_data = import_float_data("../data/perf_speed_interval_unicorn/edge-3000-10000.txt")
+	y_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
+	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-interval.pdf")
 	
-	x1_data = import_float_data("../../parsers/camflow/eval/ts-camflow-benign-0-w-1000-i-6000-post.txt")
-	x2_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-1-w-3000-i-6000.txt")
-	x3_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-2-w-3000-i-6000.txt")
-	x4_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
-	x5_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-4-w-3000-i-6000.txt")
-	x6_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-5-w-3000-i-6000.txt")
+	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. hop size
+	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
+	x2_data = import_float_data("../data/perf_speed_hop_unicorn/perf-wget-s-2000-h-1-w-3000-i-6000.txt")
+	x3_data = import_float_data("../data/perf_speed_hop_unicorn/perf-wget-s-2000-h-2-w-3000-i-6000.txt")
+	x4_data = import_float_data("../data/perf_speed_hop_unicorn/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
+	x5_data = import_float_data("../data/perf_speed_hop_unicorn/perf-wget-s-2000-h-4-w-3000-i-6000.txt")
+	x6_data = import_float_data("../data/perf_speed_hop_unicorn/perf-wget-s-2000-h-5-w-3000-i-6000.txt")
 	x_arrays = [x1_data, x2_data, x3_data, x4_data, x5_data, x6_data]
-	y1_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000-ts.txt")
-	y2_data = import_float_data("../../core/shellshock/edge-3000-6000.txt")
-	data_arrays = [y1_data, y2_data, y2_data, y2_data, y2_data, y2_data]
-	plot_multilines_x(x_arrays, data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '.', '.', '.', '.', '.'], ['CamFlow', 'Unicorn (1)', 'Unicorn (2)', 'Unicorn (3)', 'Unicorn (4)', 'Unicorn (5)'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/camflow-apt-hop.pdf")
+	y1_data = import_float_data("../data/perf_speed_camflow/edge-1000-6000.txt")
+	y2_data = import_float_data("../data/perf_speed_hop_unicorn/edge-3000-6000.txt")
+	y_arrays = [y1_data, y2_data, y2_data, y2_data, y2_data, y2_data]
+	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '.', '.', '.', '.', '.'], ['CamFlow', 'Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-hop.pdf")
 
-	x1_data = import_float_data("../../parsers/camflow/eval/ts-camflow-benign-0-w-1000-i-6000-post.txt")
-	x2_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-500-h-3-w-3000-i-6000.txt")
-	x3_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-1000-h-3-w-3000-i-6000.txt")
-	x4_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
-	x5_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-5000-h-3-w-3000-i-6000.txt")
-	x6_data = import_float_data("../../core/shellshock/hop_eval/perf-wget-s-10000-h-3-w-3000-i-6000.txt")
+	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. sketch size
+	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
+	x2_data = import_float_data("../data/perf_speed_sketch_unicorn/perf-wget-s-500-h-3-w-3000-i-6000.txt")
+	x3_data = import_float_data("../data/perf_speed_sketch_unicorn/perf-wget-s-1000-h-3-w-3000-i-6000.txt")
+	x4_data = import_float_data("../data/perf_speed_sketch_unicorn/perf-wget-s-2000-h-3-w-3000-i-6000.txt")
+	x5_data = import_float_data("../data/perf_speed_sketch_unicorn/perf-wget-s-5000-h-3-w-3000-i-6000.txt")
+	x6_data = import_float_data("../data/perf_speed_sketch_unicorn/perf-wget-s-10000-h-3-w-3000-i-6000.txt")
 	x_arrays = [x1_data, x2_data, x3_data, x4_data, x5_data, x6_data]
-	y1_data = import_float_data("../../parsers/camflow/eval/edge-1000-6000-ts.txt")
-	y2_data = import_float_data("../../core/shellshock/edge-3000-6000.txt")
-	data_arrays = [y1_data, y2_data, y2_data, y2_data, y2_data, y2_data]
-	plot_multilines_x(x_arrays, data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '.', '.', '.', '.', '.'], ['CamFlow', 'Unicorn (500)', 'Unicorn (1000)', 'Unicorn (2000)', 'Unicorn (5000)', 'Unicorn (10000)'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/camflow-apt-sketch.pdf")
+	y1_data = import_float_data("../data/perf_speed_camflow/edge-1000-6000.txt")
+	y2_data = import_float_data("../data/perf_speed_sketch_unicorn/edge-3000-6000.txt")
+	y_arrays = [y1_data, y2_data, y2_data, y2_data, y2_data, y2_data]
+	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '.', '.', '.', '.', '.'], ['CamFlow', 'Sketch = 500', 'Sketch = 1,000', 'Sketch = 2,000', 'Sketch = 5,000', 'Sketch = 10,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-sketch.pdf")
 	
-	# plot CPU usage for various intervals
-	window1_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-1000.txt")
-	window2_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-3000.txt")
-	window3_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
-	window4_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-10000.txt")
-	data_arrays = [window1_data, window2_data, window3_data, window4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/camflow-apt-cpu-interval.pdf", True, True)
+	# Unicorn CPU usage for various intervals
+	interval1_data = import_float_data("../data/perf_cpu_interval_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-1000.txt")
+	interval2_data = import_float_data("../data/perf_cpu_interval_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-3000.txt")
+	interval3_data = import_float_data("../data/perf_cpu_interval_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
+	interval4_data = import_float_data("../data/perf_cpu_interval_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-10000.txt")
+	data_arrays = [interval1_data, interval2_data, interval3_data, interval4_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-interval.pdf", True, True)
 	
-	# plot Memory usage for various intervals
-	window1_data = import_float_data("../../core/shellshock/perf-wget-mem-s-2000-h-3-w-3000-i-1000.txt")
-	window2_data = import_float_data("../../core/shellshock/perf-wget-mem-s-2000-h-3-w-3000-i-3000.txt")
-	window3_data = import_float_data("../../core/shellshock/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
-	window4_data = import_float_data("../../core/shellshock/perf-wget-mem-s-2000-h-3-w-3000-i-10000.txt")
-	data_arrays = [window1_data, window2_data, window3_data, window4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/camflow-apt-mem-interval.pdf", True)
+	# Unicorn memory usage for various intervals
+	interval1_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-1000.txt")
+	interval2_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-3000.txt")
+	interval3_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
+	interval4_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-10000.txt")
+	data_arrays = [interval1_data, interval2_data, interval3_data, interval4_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-interval.pdf", True)
 
-	# plot CPU usage for each vCPU and on average
-	average_data = import_float_data("../../core/shellshock/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
-	cpu0_data = import_float_data("../../core/shellshock/cpu-0.txt")
-	cpu1_data = import_float_data("../../core/shellshock/cpu-1.txt")
-	cpu2_data = import_float_data("../../core/shellshock/cpu-2.txt")
-	cpu3_data = import_float_data("../../core/shellshock/cpu-3.txt")
-	cpu4_data = import_float_data("../../core/shellshock/cpu-4.txt")
-	cpu5_data = import_float_data("../../core/shellshock/cpu-5.txt")
-	cpu6_data = import_float_data("../../core/shellshock/cpu-6.txt")
-	cpu7_data = import_float_data("../../core/shellshock/cpu-7.txt")
+	# Unicorn CPU usage for various windows
+	window1_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-500-i-6000.txt")
+	window2_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-1000-i-6000.txt")
+	window3_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
+	window4_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-5500-i-6000.txt")
+	data_arrays = [window1_data, window2_data, window3_data, window4_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Window = 500', 'Window = 1,000', 'Window = 3,000', 'Window = 5,500'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-window.pdf", True, True)
+	
+	# Unicorn Memory usage for various windows
+	window1_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-500-i-6000.txt")
+	window2_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-1000-i-6000.txt")
+	window3_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
+	window4_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-5500-i-6000.txt")
+	data_arrays = [window1_data, window2_data, window3_data, window4_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Window = 500', 'Window = 1,000', 'Window = 3,000', 'Window = 5,500'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-window.pdf", True)
+
+	# Unicorn CPU usage for various hops
+	hop1_data = import_float_data("../data/perf_cpu_hop_unicorn/perf-wget-cpu-s-2000-h-1-w-3000-i-6000.txt")
+	hop2_data = import_float_data("../data/perf_cpu_hop_unicorn/perf-wget-cpu-s-2000-h-2-w-3000-i-6000.txt")
+	hop3_data = import_float_data("../data/perf_cpu_hop_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
+	hop4_data = import_float_data("../data/perf_cpu_hop_unicorn/perf-wget-cpu-s-2000-h-4-w-3000-i-6000.txt")
+	hop5_data = import_float_data("../data/perf_cpu_hop_unicorn/perf-wget-cpu-s-2000-h-5-w-3000-i-6000.txt")
+	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-hop.pdf", True, True)
+	
+	# Unicorn memory usage for various hops
+	hop1_data = import_float_data("../data/perf_mem_hop_unicorn/perf-wget-mem-s-2000-h-1-w-3000-i-6000.txt")
+	hop2_data = import_float_data("../data/perf_mem_hop_unicorn/perf-wget-mem-s-2000-h-2-w-3000-i-6000.txt")
+	hop3_data = import_float_data("../data/perf_mem_hop_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
+	hop4_data = import_float_data("../data/perf_mem_hop_unicorn/perf-wget-mem-s-2000-h-4-w-3000-i-6000.txt")
+	hop5_data = import_float_data("../data/perf_mem_hop_unicorn/perf-wget-mem-s-2000-h-5-w-3000-i-6000.txt")
+	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-hop.pdf", True)
+
+	# Unicorn CPU usage for various sketch sizes
+	sketch1_data = import_float_data("../data/perf_cpu_sketch_unicorn/perf-wget-cpu-s-500-h-3-w-3000-i-6000.txt")
+	sketch2_data = import_float_data("../data/perf_cpu_sketch_unicorn/perf-wget-cpu-s-1000-h-3-w-3000-i-6000.txt")
+	sketch3_data = import_float_data("../data/perf_cpu_sketch_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
+	sketch4_data = import_float_data("../data/perf_cpu_sketch_unicorn/perf-wget-cpu-s-5000-h-3-w-3000-i-6000.txt")
+	sketch5_data = import_float_data("../data/perf_cpu_sketch_unicorn/perf-wget-cpu-s-10000-h-3-w-3000-i-6000.txt")
+	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Sketch = 500', 'Sketch = 1,000', 'Sketch = 2,000', 'Sketch = 5,000', 'Sketch = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-sketch.pdf", True, True)
+	
+	# Unicorn memory usage for various sketch sizes
+	sketch1_data = import_float_data("../data/perf_mem_sketch_unicorn/perf-wget-mem-s-500-h-3-w-3000-i-6000.txt")
+	sketch2_data = import_float_data("../data/perf_mem_sketch_unicorn/perf-wget-mem-s-1000-h-3-w-3000-i-6000.txt")
+	sketch3_data = import_float_data("../data/perf_mem_sketch_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
+	sketch4_data = import_float_data("../data/perf_mem_sketch_unicorn/perf-wget-mem-s-5000-h-3-w-3000-i-6000.txt")
+	sketch5_data = import_float_data("../data/perf_mem_sketch_unicorn/perf-wget-mem-s-10000-h-3-w-3000-i-6000.txt")
+	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Sketch = 500', 'Sketch = 1,000', 'Sketch = 2,000', 'Sketch = 5,000', 'Sketch = 10,000'], 'upper right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-sketch.pdf", True)
+
+	# Unicorn CPU usage for an hour-long extended dataset
+	extended_data = import_float_data("../data/perf_cpu_extended_unicorn/perf-extended-cpu-s-2000-h-3-w-5500-i-6000.txt")
+	data_array = [extended_data]
+	plot_scatters(data_array, 150, 45, ['#1f77b4'], ['.'], ['Extended Data'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-extended.pdf", True, True)
+
+	# Unicorn memory usage for an hour-long extended dataset
+	extended_data = import_float_data("../data/perf_mem_extended_unicorn/perf-extended-mem-s-2000-h-3-w-5500-i-6000.txt")
+	data_array = [extended_data]
+	plot_scatters(data_array, 150, 45, ['#1f77b4'], ['.'], ['Extended Data'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-extended.pdf", True)
+
+	# Unicorn CPU usage for each vCPU and on average (for a single parameter setting as shown below)
+	average_data = import_float_data("../data/perf_per_cpu/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
+	cpu0_data = import_float_data("../data/perf_per_cpu/cpu-0.txt")
+	cpu1_data = import_float_data("../data/perf_per_cpu/cpu-1.txt")
+	cpu2_data = import_float_data("../data/perf_per_cpu/cpu-2.txt")
+	cpu3_data = import_float_data("../data/perf_per_cpu/cpu-3.txt")
+	cpu4_data = import_float_data("../data/perf_per_cpu/cpu-4.txt")
+	cpu5_data = import_float_data("../data/perf_per_cpu/cpu-5.txt")
+	cpu6_data = import_float_data("../data/perf_per_cpu/cpu-6.txt")
+	cpu7_data = import_float_data("../data/perf_per_cpu/cpu-7.txt")
 	data_arrays = [average_data, cpu0_data, cpu1_data, cpu2_data, cpu3_data, cpu4_data, cpu5_data, cpu6_data, cpu7_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#cb416b', '#380282', '#01153e'], ['.', '|', 'x', '*', '8', 's', 'p', 'P', '1'], ['Average CPU', 'vCPU 0', 'vCPU 1', 'vCPU 2', 'vCPU 3', 'vCPU 4', 'vCPU 5', 'vCPU 6', 'vCPU 7'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/camflow-apt-per-cpu.pdf", True, True)
-	exit()
-	
-	# plot the performance between streaming and analyzing
-	stream_data = import_data("../data/stream-wget-attack-baseline-0.txt")
-	analyze_data = import_data("../data/perf-wget-attack-baseline-0-hop-3-l-2000.txt")
-	data_arrays = [stream_data, analyze_data]
-	plot_multilines(data_arrays, 25, 45, ['--', '-'], ['.', '.'], ['stream', 'analyze'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/stream_analyze.pdf")
-
-	# plot the performance with different hop counts
-	hop1_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-1-w-450-i-3000.txt")
-	hop2_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-2-w-450-i-3000.txt")
-	hop3_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-3000.txt")
-	hop4_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-4-w-450-i-3000.txt")
-	hop5_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-5-w-450-i-3000.txt")
-	data_arrays = [stream_data, hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
-	plot_multilines(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '|', 'x', '*', 'o', '^'], ['stream', 'Hop = 1', 'Hop = 2', 'Hop = 3 (Baseline)', 'Hop = 4', 'Hop = 5'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/hop.pdf")
-
-	# plot the performance with various sketch sizes
-	sketch1_data = import_data("../data/perf-wget-attack-baseline-0-s-500-h-3-w-450-i-3000.txt")
-	sketch2_data = import_data("../data/perf-wget-attack-baseline-0-s-1000-h-3-w-450-i-3000.txt")
-	sketch3_data = import_data("../data/perf-wget-attack-baseline-0-s-1500-h-3-w-450-i-3000.txt")
-	sketch4_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-3000.txt")
-	sketch5_data = import_data("../data/perf-wget-attack-baseline-0-s-3000-h-3-w-450-i-3000.txt")
-	data_arrays = [stream_data, sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
-	plot_multilines(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#9467bd', '#d62728', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '|', 'x', 'o', '*', '^'], ['stream', '|S| = 500', '|S| = 1,000', '|S| = 1,500', '|S| = 2,000 (Baseline)', '|S| = 3,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/sketch.pdf")
-
-	# plot the performance with various batch sizes
-	batch1_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-1500.txt")
-	batch2_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-2000.txt")
-	batch3_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-3000.txt")
-	batch4_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-5000.txt")
-	batch5_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-10000.txt")
-	data_arrays = [stream_data, batch1_data, batch2_data, batch3_data, batch4_data, batch5_data]
-	plot_multilines(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#8c564b', '#9467bd'], ['--', '-', '-', '-', '-', '-'], ['.', '|', 'x', '*', 'o', '^'], ['stream', 'Batch = 1,500', 'Batch = 2,000', 'Batch = 3,000 (Baseline)', 'Batch = 5,000', 'Batch = 10,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/batch.pdf")
-
-	# plot the performance with various window sizes
-	window1_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-200-i-3000.txt")
-	window2_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-450-i-3000.txt")
-	window3_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-500-i-3000.txt")
-	window4_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-1000-i-3000.txt")
-	window5_data = import_data("../data/perf-wget-attack-baseline-0-s-2000-h-3-w-2000-i-3000.txt")
-	data_arrays = [stream_data, window1_data, window2_data, window3_data, window4_data, window5_data]
-	plot_multilines(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#d62728', '#2ca02c', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '|', '*', 'x', 'o', '^'], ['stream', 'Interval = 200', 'Interval = 450 (Baseline)', 'Interval = 500', 'Interval = 1,000', 'Interval = 2,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/interval.pdf")
-
-	# plot the eval with various hop counts
-	hop1_data = import_float_data("../data/hop-precision-perf.txt")
-	hop2_data = import_float_data("../data/hop-recall-perf.txt")
-	hop3_data = import_float_data("../data/hop-accuracy-perf.txt")
-	hop4_data = import_float_data("../data/hop-f-measure-perf.txt")
-	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data]
-	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['1', '2', '3 (Baseline)', '4', '5'], 'Hops', 'Rate', "../plot/hop-eval.pdf", True)
-
-	# plot the eval with various sketch sizes
-	sketch1_data = import_float_data("../data/sketch-precision-perf.txt")
-	sketch2_data = import_float_data("../data/sketch-recall-perf.txt")
-	sketch3_data = import_float_data("../data/sketch-accuracy-perf.txt")
-	sketch4_data = import_float_data("../data/sketch-f-measure-perf.txt")
-	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data]
-	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['500', '1000', '1500', '2000 (Baseline)', '3000'], 'Sketch Size', 'Rate', "../plot/sketch-eval.pdf", False)
-
-	# plot the eval with various window sizes
-	window1_data = import_float_data("../data/window-precision-perf.txt")
-	window2_data = import_float_data("../data/window-recall-perf.txt")
-	window3_data = import_float_data("../data/window-accuracy-perf.txt")
-	window4_data = import_float_data("../data/window-f-measure-perf.txt")
-	data_arrays = [window1_data, window2_data, window3_data, window4_data]
-	plot_hist(data_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Precision', 'Recall', 'Accuracy', 'F-Score'], ['200', '450 (Baseline)', '500', '1000', '2000'], 'Interval', 'Rate', "../plot/window-eval.pdf", False)
-
-	# plot CPU usage for various hop counts
-	hop1_data = import_float_data("../data/cpu-s-2000-h-1-w-450-i-3000.txt")
-	hop2_data = import_float_data("../data/cpu-s-2000-h-2-w-450-i-3000.txt")
-	hop3_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-3000.txt")
-	hop4_data = import_float_data("../data/cpu-s-2000-h-4-w-450-i-3000.txt")
-	hop5_data = import_float_data("../data/cpu-s-2000-h-5-w-450-i-3000.txt")
-	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Hop = 1', 'Hop = 2', 'Hop = 3 (Baseline)', 'Hop = 4', 'Hop = 5'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/cpu-hop.pdf", True, True)
-
-	# plot Memory usage for various hop counts
-	hop1_data = import_float_data("../data/mem-s-2000-h-1-w-450-i-3000.txt")
-	hop2_data = import_float_data("../data/mem-s-2000-h-2-w-450-i-3000.txt")
-	hop3_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-3000.txt")
-	hop4_data = import_float_data("../data/mem-s-2000-h-4-w-450-i-3000.txt")
-	hop5_data = import_float_data("../data/mem-s-2000-h-5-w-450-i-3000.txt")
-	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Hop = 1', 'Hop = 2', 'Hop = 3 (Baseline)', 'Hop = 4', 'Hop = 5'], 'upper left', 'Time (seconds)', 'Memory Usage (MB)', "../plot/mem-hop.pdf", True)
-
-	# plot CPU usage for various sketch sizes
-	sketch1_data = import_float_data("../data/cpu-s-500-h-3-w-450-i-3000.txt")
-	sketch2_data = import_float_data("../data/cpu-s-1000-h-3-w-450-i-3000.txt")
-	sketch3_data = import_float_data("../data/cpu-s-1500-h-3-w-450-i-3000.txt")
-	sketch4_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-3000.txt")
-	sketch5_data = import_float_data("../data/cpu-s-3000-h-3-w-450-i-3000.txt")
-	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['|S| = 500', '|S| = 1,000', '|S| = 1,500', '|S| = 2,000 (Baseline)', '|S| = 3,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/cpu-sketch.pdf", True, True)
-
-	# plot Memory usage for various sketch sizes
-	sketch1_data = import_float_data("../data/mem-s-500-h-3-w-450-i-3000.txt")
-	sketch2_data = import_float_data("../data/mem-s-1000-h-3-w-450-i-3000.txt")
-	sketch3_data = import_float_data("../data/mem-s-1500-h-3-w-450-i-3000.txt")
-	sketch4_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-3000.txt")
-	sketch5_data = import_float_data("../data/mem-s-3000-h-3-w-450-i-3000.txt")
-	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['|S| = 500', '|S| = 1,000', '|S| = 1,500', '|S| = 2,000 (Baseline)', '|S| = 3,000'], 'upper left', 'Time (seconds)', 'Memory Usage (MB)', "../plot/mem-sketch.pdf", True)
-
-	# plot CPU usage for various batch sizes
-	batch1_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-1500.txt")
-	batch2_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-2000.txt")
-	batch3_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-3000.txt")
-	batch4_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-5000.txt")
-	batch5_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-10000.txt")
-	data_arrays = [batch1_data, batch2_data, batch3_data, batch4_data, batch5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Batch = 1,500', 'Batch = 2,000', 'Batch = 3,000 (Baseline)', 'Batch = 5,000', 'Batch = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/cpu-batch.pdf", True, True)
-
-	# plot Memory usage for various batch sizes
-	batch1_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-1500.txt")
-	batch2_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-2000.txt")
-	batch3_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-3000.txt")
-	batch4_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-5000.txt")
-	batch5_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-10000.txt")
-	data_arrays = [batch1_data, batch2_data, batch3_data, batch4_data, batch5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Batch = 1,500', 'Batch = 2,000', 'Batch = 3,000 (Baseline)', 'Batch = 5,000', 'Batch = 10,000'], 'upper left', 'Time (seconds)', 'Memory Usage (MB)', "../plot/mem-batch.pdf", True)
-
-	# plot CPU usage for various intervals
-	window1_data = import_float_data("../data/cpu-s-2000-h-3-w-200-i-3000.txt")
-	window2_data = import_float_data("../data/cpu-s-2000-h-3-w-450-i-3000.txt")
-	window3_data = import_float_data("../data/cpu-s-2000-h-3-w-500-i-3000.txt")
-	window4_data = import_float_data("../data/cpu-s-2000-h-3-w-1000-i-3000.txt")
-	window5_data = import_float_data("../data/cpu-s-2000-h-3-w-2000-i-3000.txt")
-	data_arrays = [window1_data, window2_data, window3_data, window4_data, window5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Interval = 200', 'Interval = 450 (Baseline)', 'Interval = 500', 'Interval = 1,000', 'Interval = 2,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/cpu-interval.pdf", True, True)
-
-	# plot Memory usage for various intervals
-	window1_data = import_float_data("../data/mem-s-2000-h-3-w-200-i-3000.txt")
-	window2_data = import_float_data("../data/mem-s-2000-h-3-w-450-i-3000.txt")
-	window3_data = import_float_data("../data/mem-s-2000-h-3-w-500-i-3000.txt")
-	window4_data = import_float_data("../data/mem-s-2000-h-3-w-1000-i-3000.txt")
-	window5_data = import_float_data("../data/mem-s-2000-h-3-w-2000-i-3000.txt")
-	data_arrays = [window1_data, window2_data, window3_data, window4_data, window5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', 'o'], ['Interval = 200', 'Interval = 450 (Baseline)', 'Interval = 500', 'Interval = 1,000', 'Interval = 2,000'], 'upper left', 'Time (seconds)', 'Memory Usage (MB)', "../plot/mem-interval.pdf", True)
-
-
-
-
-
-
-
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#cb416b', '#380282', '#01153e'], ['.', '|', 'x', '*', '8', 's', 'p', 'P', '1'], ['Average CPU', 'vCPU 0', 'vCPU 1', 'vCPU 2', 'vCPU 3', 'vCPU 4', 'vCPU 5', 'vCPU 6', 'vCPU 7'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf_per_cpu.pdf", True, True)
