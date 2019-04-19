@@ -402,3 +402,12 @@ if __name__ == "__main__":
 	y_arrays = [accuracy_data, precision_data, recall_data, f_score_data]
 	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Hop', 'Rate', "../plot/param-camflow-subset-hop.pdf", True)
 
+	# Unicorn detection performance for various hops
+	x_data = ['500', '1,000', '3,000', '5,000']
+	accuracy_data = import_float_data("../data/param_window_camflow_subset/param_window_accuracy.txt")
+	precision_data = import_float_data("../data/param_window_camflow_subset/param_window_precision.txt")
+	recall_data = import_float_data("../data/param_window_camflow_subset/param_window_recall.txt")
+	f_score_data = import_float_data("../data/param_window_camflow_subset/param_window_f_score.txt")
+	y_arrays = [accuracy_data, precision_data, recall_data, f_score_data]
+	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Window Size', 'Rate', "../plot/param-camflow-subset-window.pdf", True)
+
