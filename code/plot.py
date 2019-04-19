@@ -411,3 +411,12 @@ if __name__ == "__main__":
 	y_arrays = [accuracy_data, precision_data, recall_data, f_score_data]
 	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Window Size', 'Rate', "../plot/param-camflow-subset-window.pdf", True)
 
+	# Unicorn detection performance for various decay rates
+	x_data = ['0.0', '0.02', '0.1', '1.0']
+	accuracy_data = import_float_data("../data/param_decay_camflow_subset/param_decay_accuracy.txt")
+	precision_data = import_float_data("../data/param_decay_camflow_subset/param_decay_precision.txt")
+	recall_data = import_float_data("../data/param_decay_camflow_subset/param_decay_recall.txt")
+	f_score_data = import_float_data("../data/param_decay_camflow_subset/param_decay_f_score.txt")
+	y_arrays = [accuracy_data, precision_data, recall_data, f_score_data]
+	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Decay Rate', 'Rate', "../plot/param-camflow-subset-decay.pdf", True)
+

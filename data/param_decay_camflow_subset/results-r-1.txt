@@ -1,0 +1,217 @@
+Sketch shape: (746, 2000)
+Sketch shape: (780, 2000)
+Sketch shape: (800, 2000)
+Sketch shape: (810, 2000)
+Sketch shape: (798, 2000)
+Sketch shape: (770, 2000)
+Sketch shape: (780, 2000)
+Sketch shape: (766, 2000)
+Sketch shape: (842, 2000)
+Sketch shape: (748, 2000)
+Sketch shape: (790, 2000)
+Sketch shape: (766, 2000)
+Sketch shape: (736, 2000)
+Sketch shape: (734, 2000)
+Sketch shape: (764, 2000)
+Sketch shape: (764, 2000)
+Sketch shape: (726, 2000)
+Sketch shape: (768, 2000)
+Sketch shape: (626, 2000)
+Sketch shape: (792, 2000)
+Sketch shape: (790, 2000)
+Sketch shape: (746, 2000)
+Sketch shape: (790, 2000)
+Sketch shape: (726, 2000)
+Sketch shape: (754, 2000)
+Sketch shape: (734, 2000)
+Sketch shape: (732, 2000)
+Sketch shape: (704, 2000)
+Sketch shape: (702, 2000)
+Sketch shape: (740, 2000)
+Sketch shape: (802, 2000)
+Sketch shape: (722, 2000)
+Sketch shape: (722, 2000)
+Sketch shape: (710, 2000)
+Sketch shape: (732, 2000)
+Sketch shape: (746, 2000)
+Sketch shape: (742, 2000)
+Model 0 is done!
+Saving model sketch-benign-0.txt...
+Model 1 is done!
+Saving model sketch-benign-4.txt...
+Model 2 is done!
+Saving model sketch-benign-8.txt...
+Model 3 is done!
+Saving model sketch-benign-12.txt...
+Model 4 is done!
+Saving model sketch-benign-16.txt...
+Model 5 is done!
+Saving model sketch-benign-20.txt...
+Model 6 is done!
+Saving model sketch-benign-24.txt...
+Model 7 is done!
+Saving model sketch-benign-28.txt...
+Model 8 is done!
+Saving model sketch-benign-32.txt...
+Model 9 is done!
+Saving model sketch-benign-36.txt...
+Model 10 is done!
+Saving model sketch-benign-40.txt...
+Model 11 is done!
+Saving model sketch-benign-44.txt...
+Model 12 is done!
+Saving model sketch-benign-48.txt...
+Model 13 is done!
+Saving model sketch-benign-52.txt...
+Model 14 is done!
+Saving model sketch-benign-56.txt...
+Model 15 is done!
+Saving model sketch-benign-60.txt...
+Model 16 is done!
+Saving model sketch-benign-64.txt...
+Model 17 is done!
+Saving model sketch-benign-68.txt...
+Model 18 is done!
+Saving model sketch-benign-72.txt...
+Model 19 is done!
+Saving model sketch-benign-76.txt...
+Model 20 is done!
+Saving model sketch-benign-80.txt...
+Model 21 is done!
+Saving model sketch-benign-84.txt...
+Model 22 is done!
+Saving model sketch-benign-88.txt...
+Model 23 is done!
+Saving model sketch-benign-92.txt...
+Model 24 is done!
+Saving model sketch-benign-96.txt...
+Model 25 is done!
+Saving model sketch-benign-100.txt...
+Model 26 is done!
+Saving model sketch-benign-104.txt...
+Model 27 is done!
+Saving model sketch-benign-108.txt...
+Model 28 is done!
+Saving model sketch-benign-112.txt...
+Model 29 is done!
+Saving model sketch-benign-116.txt...
+Model 30 is done!
+Saving model sketch-benign-120.txt...
+Model 31 is done!
+Saving model sketch-benign-124.txt...
+We will perform 5-fold cross validation...
+We will attempt multiple cluster threshold configurations for the best results.
+Trying: mean/max distances with 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0 standard deviation(s)...
+Best Configuration: 
+Threshold metric: max
+Number of standard deviations: 1.3
+Test accuracy: 0.5
+Test Precision: 0.0
+Test Recall: 0.0
+Test F-1 Score: None
+Results: 
+This graph: sketch-attack-0.txt is considered NORMAL (20/25).
+This graph: sketch-attack-5.txt is considered NORMAL (11/25).
+This graph: sketch-attack-10.txt is considered NORMAL (11/25).
+This graph: sketch-attack-15.txt is considered NORMAL (1/25).
+This graph: sketch-attack-20.txt is considered NORMAL (6/25).
+This graph: sketch-benign-44.txt is considered NORMAL (2/25).
+This graph: sketch-benign-88.txt is considered NORMAL (3/25).
+This graph: sketch-benign-40.txt is considered NORMAL (2/25).
+This graph: sketch-benign-8.txt is considered NORMAL (13/25).
+This graph: sketch-benign-64.txt is considered ABNORMAL at 363
+This graph: sketch-benign-56.txt is considered NORMAL (12/25).
+This graph: sketch-benign-112.txt is considered NORMAL (10/25).
+
+We will attempt multiple cluster threshold configurations for the best results.
+Trying: mean/max distances with 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0 standard deviation(s)...
+Best Configuration: 
+Threshold metric: max
+Number of standard deviations: 1.3
+Test accuracy: 0.583333333333
+Test Precision: None
+Test Recall: 0.0
+Test F-1 Score: None
+Results: 
+This graph: sketch-attack-0.txt is considered NORMAL (21/25).
+This graph: sketch-attack-5.txt is considered NORMAL (11/25).
+This graph: sketch-attack-10.txt is considered NORMAL (12/25).
+This graph: sketch-attack-15.txt is considered NORMAL (1/25).
+This graph: sketch-attack-20.txt is considered NORMAL (8/25).
+This graph: sketch-benign-112.txt is considered NORMAL (10/25).
+This graph: sketch-benign-48.txt is considered NORMAL (5/25).
+This graph: sketch-benign-60.txt is considered NORMAL (17/25).
+This graph: sketch-benign-72.txt is considered NORMAL (1/25).
+This graph: sketch-benign-68.txt is considered NORMAL (4/25).
+This graph: sketch-benign-84.txt is considered NORMAL (10/25).
+This graph: sketch-benign-92.txt is considered NORMAL (19/25).
+
+We will attempt multiple cluster threshold configurations for the best results.
+Trying: mean/max distances with 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0 standard deviation(s)...
+Best Configuration: 
+Threshold metric: max
+Number of standard deviations: 1.3
+Test accuracy: 0.583333333333
+Test Precision: 0.5
+Test Recall: 0.2
+Test F-1 Score: 0.285714285714
+Results: 
+This graph: sketch-attack-0.txt is considered NORMAL (21/25).
+This graph: sketch-attack-5.txt is considered NORMAL (10/25).
+This graph: sketch-attack-10.txt is considered NORMAL (12/25).
+This graph: sketch-attack-15.txt is considered ABNORMAL at 373
+This graph: sketch-attack-20.txt is considered NORMAL (5/25).
+This graph: sketch-benign-84.txt is considered NORMAL (11/25).
+This graph: sketch-benign-120.txt is considered NORMAL (12/25).
+This graph: sketch-benign-124.txt is considered NORMAL (1/25).
+This graph: sketch-benign-20.txt is considered NORMAL (11/25).
+This graph: sketch-benign-8.txt is considered NORMAL (12/25).
+This graph: sketch-benign-64.txt is considered ABNORMAL at 363
+This graph: sketch-benign-116.txt is considered NORMAL (10/25).
+
+We will attempt multiple cluster threshold configurations for the best results.
+Trying: mean/max distances with 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0 standard deviation(s)...
+Best Configuration: 
+Threshold metric: max
+Number of standard deviations: 1.3
+Test accuracy: 0.583333333333
+Test Precision: None
+Test Recall: 0.0
+Test F-1 Score: None
+Results: 
+This graph: sketch-attack-0.txt is considered NORMAL (20/25).
+This graph: sketch-attack-5.txt is considered NORMAL (10/25).
+This graph: sketch-attack-10.txt is considered NORMAL (11/25).
+This graph: sketch-attack-15.txt is considered NORMAL (1/25).
+This graph: sketch-attack-20.txt is considered NORMAL (6/25).
+This graph: sketch-benign-44.txt is considered NORMAL (2/25).
+This graph: sketch-benign-60.txt is considered NORMAL (16/25).
+This graph: sketch-benign-80.txt is considered NORMAL (10/25).
+This graph: sketch-benign-4.txt is considered NORMAL (11/25).
+This graph: sketch-benign-24.txt is considered NORMAL (9/25).
+This graph: sketch-benign-48.txt is considered NORMAL (5/25).
+This graph: sketch-benign-32.txt is considered NORMAL (10/25).
+
+We will attempt multiple cluster threshold configurations for the best results.
+Trying: mean/max distances with 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0 standard deviation(s)...
+Best Configuration: 
+Threshold metric: max
+Number of standard deviations: 1.3
+Test accuracy: 0.583333333333
+Test Precision: None
+Test Recall: 0.0
+Test F-1 Score: None
+Results: 
+This graph: sketch-attack-0.txt is considered NORMAL (23/25).
+This graph: sketch-attack-5.txt is considered NORMAL (12/25).
+This graph: sketch-attack-10.txt is considered NORMAL (13/25).
+This graph: sketch-attack-15.txt is considered NORMAL (1/25).
+This graph: sketch-attack-20.txt is considered NORMAL (6/25).
+This graph: sketch-benign-76.txt is considered NORMAL (13/25).
+This graph: sketch-benign-20.txt is considered NORMAL (12/25).
+This graph: sketch-benign-88.txt is considered NORMAL (6/25).
+This graph: sketch-benign-60.txt is considered NORMAL (18/25).
+This graph: sketch-benign-28.txt is considered NORMAL (10/25).
+This graph: sketch-benign-52.txt is considered NORMAL (7/25).
+This graph: sketch-benign-48.txt is considered NORMAL (5/25).
+
