@@ -237,7 +237,7 @@ if __name__ == "__main__":
 		print_instruction()
 		sys.exit(1)
 
-	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. window size
+	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. window size (we call it interval in the paper)
 	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
 	x2_data = import_float_data("../data/perf_speed_window_unicorn/perf-wget-s-2000-h-3-w-500-i-6000.txt")
 	x3_data = import_float_data("../data/perf_speed_window_unicorn/perf-wget-s-2000-h-3-w-1000-i-6000.txt")
@@ -250,9 +250,9 @@ if __name__ == "__main__":
 	y4_data = import_float_data("../data/perf_speed_window_unicorn/edge-3000-6000.txt")
 	y5_data = import_float_data("../data/perf_speed_window_unicorn/edge-5500-6000.txt")
 	y_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
-	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Window = 500', 'Window = 1,000', 'Window = 3,000', 'Window = 5,500'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-window.pdf")
+	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Interval = 500', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 5,500'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-window.pdf")
 	
-	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. interval size
+	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. interval size (we call it batch in the paper)
 	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
 	x2_data = import_float_data("../data/perf_speed_interval_unicorn/perf-wget-s-2000-h-3-w-3000-i-1000.txt")
 	x3_data = import_float_data("../data/perf_speed_interval_unicorn/perf-wget-s-2000-h-3-w-3000-i-3000.txt")
@@ -265,7 +265,7 @@ if __name__ == "__main__":
 	y4_data = import_float_data("../data/perf_speed_interval_unicorn/edge-3000-6000.txt")
 	y5_data = import_float_data("../data/perf_speed_interval_unicorn/edge-3000-10000.txt")
 	y_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
-	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-interval.pdf")
+	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Batch = 1,000', 'Batch = 3,000', 'Batch = 6,000', 'Batch = 10,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-interval.pdf")
 	
 	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. hop size
 	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
@@ -299,7 +299,7 @@ if __name__ == "__main__":
 	interval3_data = import_float_data("../data/perf_cpu_interval_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
 	interval4_data = import_float_data("../data/perf_cpu_interval_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-10000.txt")
 	data_arrays = [interval1_data, interval2_data, interval3_data, interval4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-interval.pdf", True, True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Batch = 1,000', 'Batch = 3,000', 'Batch = 6,000', 'Batch = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-interval.pdf", True, True)
 	
 	# Unicorn memory usage for various intervals
 	interval1_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-1000.txt")
@@ -307,7 +307,7 @@ if __name__ == "__main__":
 	interval3_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
 	interval4_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-10000.txt")
 	data_arrays = [interval1_data, interval2_data, interval3_data, interval4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 1,000', 'Interval = 3,000', 'Interval = 6,000', 'Interval = 10,000'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-interval.pdf", True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Batch = 1,000', 'Batch = 3,000', 'Batch = 6,000', 'Batch = 10,000'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-interval.pdf", True)
 
 	# Unicorn CPU usage for various windows
 	window1_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-500-i-6000.txt")
@@ -315,7 +315,7 @@ if __name__ == "__main__":
 	window3_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
 	window4_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-5500-i-6000.txt")
 	data_arrays = [window1_data, window2_data, window3_data, window4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Window = 500', 'Window = 1,000', 'Window = 3,000', 'Window = 5,500'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-window.pdf", True, True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 500', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 5,500'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-window.pdf", True, True)
 	
 	# Unicorn Memory usage for various windows
 	window1_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-500-i-6000.txt")
@@ -323,7 +323,7 @@ if __name__ == "__main__":
 	window3_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
 	window4_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-5500-i-6000.txt")
 	data_arrays = [window1_data, window2_data, window3_data, window4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Window = 500', 'Window = 1,000', 'Window = 3,000', 'Window = 5,500'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-window.pdf", True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 500', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 5,500'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-window.pdf", True)
 
 	# Unicorn CPU usage for various hops
 	hop1_data = import_float_data("../data/perf_cpu_hop_unicorn/perf-wget-cpu-s-2000-h-1-w-3000-i-6000.txt")
@@ -402,14 +402,14 @@ if __name__ == "__main__":
 	y_arrays = [accuracy_data, precision_data, recall_data, f_score_data]
 	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Hop', 'Rate', "../plot/param-camflow-subset-hop.pdf", True)
 
-	# Unicorn detection performance for various hops
+	# Unicorn detection performance for various windows
 	x_data = ['500', '1,000', '3,000', '5,000']
 	accuracy_data = import_float_data("../data/param_window_camflow_subset/param_window_accuracy.txt")
 	precision_data = import_float_data("../data/param_window_camflow_subset/param_window_precision.txt")
 	recall_data = import_float_data("../data/param_window_camflow_subset/param_window_recall.txt")
 	f_score_data = import_float_data("../data/param_window_camflow_subset/param_window_f_score.txt")
 	y_arrays = [accuracy_data, precision_data, recall_data, f_score_data]
-	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Window Size', 'Rate', "../plot/param-camflow-subset-window.pdf", True)
+	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Interval Size', 'Rate', "../plot/param-camflow-subset-window.pdf", True)
 
 	# Unicorn detection performance for various decay rates
 	x_data = ['0.0', '0.02', '0.1', '1.0']
