@@ -122,6 +122,30 @@ def plot_scatters(data_arrays, tick_interval, xlabelrotation, color_array, marke
 
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
 
+def plot_scatters_no_legend(data_arrays, tick_interval, xlabelrotation, color_array, markerstyle_array, xlabel_str, ylabel_str, savefilepath, need_upper_y_lim=False):
+	fig, ax = plt.subplots()
+	# create x-axes for all plots in @data_arrays and plot all of them
+	for pos, line in enumerate(data_arrays):
+		scatter_style = dict(color=color_array[pos], s=10, marker=markerstyle_array[pos])
+		timeline = np.arange(1, len(line) + 1)
+		draw_line = ax.scatter(timeline, line, **scatter_style)
+	# set x-axis ticks to be every @tick_interval 
+	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
+	# set x-axis smallest value to be 0
+	ax.set_xlim(left=0)
+	# set y-axis smallest value to be 0
+	if need_upper_y_lim:
+		ax.set_ylim(bottom=0, top=100)
+	else:
+		ax.set_ylim(bottom=0)
+	# tick appearance
+	ax.tick_params(axis='x', labelrotation=xlabelrotation)
+	# set labels
+	ax.set_xlabel(xlabel_str)
+	ax.set_ylabel(ylabel_str)
+
+	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
+
 def plot_scatters_legend_out(data_arrays, tick_interval, xlabelrotation, color_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend, need_upper_y_lim=False):
 	"""
 	Same as plot_scatters except legend_loc param is used as "ncol" and legend is located outside the plot box.
@@ -385,7 +409,7 @@ if __name__ == "__main__":
 	plot_scatters_legend_out(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#cb416b', '#380282', '#01153e'], ['.', '|', 'x', '*', '8', 's', 'p', 'P', '1'], ['Average CPU', 'vCPU 0', 'vCPU 1', 'vCPU 2', 'vCPU 3', 'vCPU 4', 'vCPU 5', 'vCPU 6', 'vCPU 7'], 9, 'Time (seconds)', '% CPU Usage', "../plot/perf_per_cpu.pdf", True, True)
 
 	# Unicorn detection performance for various sketch sizes
-	x_data = ['500', '1,000', '2,000', '3,000', '10,000']
+	x_data = ['500', '1,000', '2,000*', '3,000', '10,000']
 	accuracy_data = import_float_data("../data/param_sketch_camflow_subset/param_sketch_accuracy.txt")
 	precision_data = import_float_data("../data/param_sketch_camflow_subset/param_sketch_precision.txt")
 	recall_data = import_float_data("../data/param_sketch_camflow_subset/param_sketch_recall.txt")
@@ -394,7 +418,7 @@ if __name__ == "__main__":
 	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Sketch Size', 'Rate', "../plot/param-camflow-subset-sketch.pdf", True)
 
 	# Unicorn detection performance for various hops
-	x_data = ['1', '2', '3', '4', '5']
+	x_data = ['1', '2', '3*', '4', '5']
 	accuracy_data = import_float_data("../data/param_hop_camflow_subset/param_hop_accuracy.txt")
 	precision_data = import_float_data("../data/param_hop_camflow_subset/param_hop_precision.txt")
 	recall_data = import_float_data("../data/param_hop_camflow_subset/param_hop_recall.txt")
@@ -403,7 +427,7 @@ if __name__ == "__main__":
 	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Hop', 'Rate', "../plot/param-camflow-subset-hop.pdf", True)
 
 	# Unicorn detection performance for various windows
-	x_data = ['500', '1,000', '3,000', '5,000']
+	x_data = ['500', '1,000', '3,000*', '5,000']
 	accuracy_data = import_float_data("../data/param_window_camflow_subset/param_window_accuracy.txt")
 	precision_data = import_float_data("../data/param_window_camflow_subset/param_window_precision.txt")
 	recall_data = import_float_data("../data/param_window_camflow_subset/param_window_recall.txt")
@@ -412,7 +436,7 @@ if __name__ == "__main__":
 	plot_hist(y_arrays, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['Accuracy', 'Precision', 'Recall', 'F-Score'], x_data, 'Interval Size', 'Rate', "../plot/param-camflow-subset-window.pdf", True)
 
 	# Unicorn detection performance for various decay rates
-	x_data = ['0.0', '0.02', '0.1', '1.0']
+	x_data = ['0.0', '0.02*', '0.1', '1.0']
 	accuracy_data = import_float_data("../data/param_decay_camflow_subset/param_decay_accuracy.txt")
 	precision_data = import_float_data("../data/param_decay_camflow_subset/param_decay_precision.txt")
 	recall_data = import_float_data("../data/param_decay_camflow_subset/param_decay_recall.txt")
