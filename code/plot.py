@@ -351,7 +351,7 @@ if __name__ == "__main__":
 	interval3_data = import_float_data("../data/perf_cpu_interval_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
 	interval4_data = import_float_data("../data/perf_cpu_interval_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-10000.txt")
 	data_arrays = [interval1_data, interval2_data, interval3_data, interval4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Batch = 1,000', 'Batch = 3,000', 'Batch = 6,000', 'Batch = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-interval.pdf", True, True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Batch = 1,000', 'Batch = 3,000', 'Batch = 6,000', 'Batch = 10,000'], 'upper right', 'Time (seconds)', '% CPU Utilization', "../plot/perf-cpu-camflow-interval.pdf", True, True)
 	
 	# Unicorn memory usage for various intervals
 	interval1_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-1000.txt")
@@ -359,7 +359,7 @@ if __name__ == "__main__":
 	interval3_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
 	interval4_data = import_float_data("../data/perf_mem_interval_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-10000.txt")
 	data_arrays = [interval1_data, interval2_data, interval3_data, interval4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Batch = 1,000', 'Batch = 3,000', 'Batch = 6,000', 'Batch = 10,000'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-interval.pdf", True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Batch = 1,000', 'Batch = 3,000', 'Batch = 6,000', 'Batch = 10,000'], 'lower right', 'Time (seconds)', 'Memory Utilization (MB)', "../plot/perf-mem-camflow-interval.pdf", True)
 
 	# Unicorn CPU usage for various windows
 	window1_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-500-i-6000.txt")
@@ -367,7 +367,7 @@ if __name__ == "__main__":
 	window3_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
 	window4_data = import_float_data("../data/perf_cpu_window_unicorn/perf-wget-cpu-s-2000-h-3-w-5500-i-6000.txt")
 	data_arrays = [window1_data, window2_data, window3_data, window4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 500', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 5,500'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-window.pdf", True, True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 500', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 5,500'], 'upper right', 'Time (seconds)', '% CPU Utilization', "../plot/perf-cpu-camflow-window.pdf", True, True)
 	
 	# Unicorn Memory usage for various windows
 	window1_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-500-i-6000.txt")
@@ -375,7 +375,7 @@ if __name__ == "__main__":
 	window3_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-3000-i-6000.txt")
 	window4_data = import_float_data("../data/perf_mem_window_unicorn/perf-wget-mem-s-2000-h-3-w-5500-i-6000.txt")
 	data_arrays = [window1_data, window2_data, window3_data, window4_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 500', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 5,500'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-window.pdf", True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'], ['.', '|', 'x', '*'], ['Interval = 500', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 5,500'], 'lower right', 'Time (seconds)', 'Memory Utilization (MB)', "../plot/perf-mem-camflow-window.pdf", True)
 
 	# Unicorn CPU usage for various hops
 	hop1_data = import_float_data("../data/perf_cpu_hop_unicorn/perf-wget-cpu-s-2000-h-1-w-3000-i-6000.txt")
@@ -384,7 +384,7 @@ if __name__ == "__main__":
 	hop4_data = import_float_data("../data/perf_cpu_hop_unicorn/perf-wget-cpu-s-2000-h-4-w-3000-i-6000.txt")
 	hop5_data = import_float_data("../data/perf_cpu_hop_unicorn/perf-wget-cpu-s-2000-h-5-w-3000-i-6000.txt")
 	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-hop.pdf", True, True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'upper right', 'Time (seconds)', '% CPU Utilization', "../plot/perf-cpu-camflow-hop.pdf", True, True)
 	
 	# Unicorn memory usage for various hops
 	hop1_data = import_float_data("../data/perf_mem_hop_unicorn/perf-wget-mem-s-2000-h-1-w-3000-i-6000.txt")
@@ -393,7 +393,7 @@ if __name__ == "__main__":
 	hop4_data = import_float_data("../data/perf_mem_hop_unicorn/perf-wget-mem-s-2000-h-4-w-3000-i-6000.txt")
 	hop5_data = import_float_data("../data/perf_mem_hop_unicorn/perf-wget-mem-s-2000-h-5-w-3000-i-6000.txt")
 	data_arrays = [hop1_data, hop2_data, hop3_data, hop4_data, hop5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-hop.pdf", True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'lower right', 'Time (seconds)', 'Memory Utilization (MB)', "../plot/perf-mem-camflow-hop.pdf", True)
 
 	# Unicorn CPU usage for various sketch sizes
 	sketch1_data = import_float_data("../data/perf_cpu_sketch_unicorn/perf-wget-cpu-s-500-h-3-w-3000-i-6000.txt")
@@ -402,7 +402,7 @@ if __name__ == "__main__":
 	sketch4_data = import_float_data("../data/perf_cpu_sketch_unicorn/perf-wget-cpu-s-5000-h-3-w-3000-i-6000.txt")
 	sketch5_data = import_float_data("../data/perf_cpu_sketch_unicorn/perf-wget-cpu-s-10000-h-3-w-3000-i-6000.txt")
 	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Sketch = 500', 'Sketch = 1,000', 'Sketch = 2,000', 'Sketch = 5,000', 'Sketch = 10,000'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-sketch.pdf", True, True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Sketch = 500', 'Sketch = 1,000', 'Sketch = 2,000', 'Sketch = 5,000', 'Sketch = 10,000'], 'upper right', 'Time (seconds)', '% CPU Utilization', "../plot/perf-cpu-camflow-sketch.pdf", True, True)
 	
 	# Unicorn memory usage for various sketch sizes
 	sketch1_data = import_float_data("../data/perf_mem_sketch_unicorn/perf-wget-mem-s-500-h-3-w-3000-i-6000.txt")
@@ -411,17 +411,17 @@ if __name__ == "__main__":
 	sketch4_data = import_float_data("../data/perf_mem_sketch_unicorn/perf-wget-mem-s-5000-h-3-w-3000-i-6000.txt")
 	sketch5_data = import_float_data("../data/perf_mem_sketch_unicorn/perf-wget-mem-s-10000-h-3-w-3000-i-6000.txt")
 	data_arrays = [sketch1_data, sketch2_data, sketch3_data, sketch4_data, sketch5_data]
-	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Sketch = 500', 'Sketch = 1,000', 'Sketch = 2,000', 'Sketch = 5,000', 'Sketch = 10,000'], 'upper right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-sketch.pdf", True)
+	plot_scatters(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['.', '|', 'x', '*', '8'], ['Sketch = 500', 'Sketch = 1,000', 'Sketch = 2,000', 'Sketch = 5,000', 'Sketch = 10,000'], 'upper right', 'Time (seconds)', 'Memory Utilization (MB)', "../plot/perf-mem-camflow-sketch.pdf", True)
 
 	# Unicorn CPU usage for an hour-long extended dataset
 	extended_data = import_float_data("../data/perf_cpu_extended_unicorn/perf-extended-cpu-s-2000-h-3-w-5500-i-6000.txt")
 	data_array = [extended_data]
-	plot_scatters(data_array, 150, 45, ['#1f77b4'], ['.'], ['Extended Data'], 'upper right', 'Time (seconds)', '% CPU Usage', "../plot/perf-cpu-camflow-extended.pdf", True, True)
+	plot_scatters_no_legend(data_array, 150, 45, ['#1f77b4'], ['.'], 'Time (seconds)', '% CPU Utilization', "../plot/perf-cpu-camflow-extended.pdf", True)
 
 	# Unicorn memory usage for an hour-long extended dataset
 	extended_data = import_float_data("../data/perf_mem_extended_unicorn/perf-extended-mem-s-2000-h-3-w-5500-i-6000.txt")
 	data_array = [extended_data]
-	plot_scatters(data_array, 150, 45, ['#1f77b4'], ['.'], ['Extended Data'], 'lower right', 'Time (seconds)', 'Memory Usage (MB)', "../plot/perf-mem-camflow-extended.pdf", True)
+	plot_scatters_no_legend(data_array, 150, 45, ['#1f77b4'], ['.'], 'Time (seconds)', 'Memory Utilization (MB)', "../plot/perf-mem-camflow-extended.pdf", True)
 
 	# Unicorn CPU usage for each vCPU and on average (for a single parameter setting as shown below)
 	average_data = import_float_data("../data/perf_per_cpu/perf-wget-cpu-s-2000-h-3-w-3000-i-6000.txt")
@@ -434,7 +434,7 @@ if __name__ == "__main__":
 	cpu6_data = import_float_data("../data/perf_per_cpu/cpu-6.txt")
 	cpu7_data = import_float_data("../data/perf_per_cpu/cpu-7.txt")
 	data_arrays = [average_data, cpu0_data, cpu1_data, cpu2_data, cpu3_data, cpu4_data, cpu5_data, cpu6_data, cpu7_data]
-	plot_scatters_legend_out(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#cb416b', '#380282', '#01153e'], ['.', '|', 'x', '*', '8', 's', 'p', 'P', '1'], ['Average CPU', 'vCPU 0', 'vCPU 1', 'vCPU 2', 'vCPU 3', 'vCPU 4', 'vCPU 5', 'vCPU 6', 'vCPU 7'], 9, 'Time (seconds)', '% CPU Usage', "../plot/perf_per_cpu.pdf", True, True)
+	plot_scatters_legend_out(data_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#cb416b', '#380282', '#01153e'], ['.', '|', 'x', '*', '8', 's', 'p', 'P', '1'], ['Average CPU', 'vCPU 0', 'vCPU 1', 'vCPU 2', 'vCPU 3', 'vCPU 4', 'vCPU 5', 'vCPU 6', 'vCPU 7'], 9, 'Time (seconds)', '% CPU Utilization', "../plot/perf_per_cpu.pdf", True, True)
 
 	# Unicorn detection performance for various sketch sizes
 	x_data = ['500', '1,000', '2,000*', '3,000', '10,000']
