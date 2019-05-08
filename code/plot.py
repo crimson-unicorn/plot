@@ -62,7 +62,7 @@ def plot_multilines(data_arrays, tick_interval, xlabelrotation, color_array, lin
 	plt.savefig(savefilepath, format='pdf', bbox_inches='tight')
 
 
-def plot_multilines_x(x_arrays, data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend=True, need_right_x_lim=True, linewidth=0.5):
+def plot_multilines_x(x_arrays, data_arrays, tick_interval, xlabelrotation, color_array, linestyle_array, markerstyle_array, legend_array, legend_loc, xlabel_str, ylabel_str, savefilepath, need_legend=True, need_right_x_lim=True, linewidth=1.0):
 	"""
 	Plot multiple lines (all encompassed in @data_arrays) in the same figure.
 	x ticks have interval @tick_interval, and the tick labels are rotated at the angle @xlabelrotation.
@@ -73,7 +73,7 @@ def plot_multilines_x(x_arrays, data_arrays, tick_interval, xlabelrotation, colo
 	fig, ax = plt.subplots()
 	# create x-axes for all plots in @data_arrays and plot all of them
 	for pos, line in enumerate(data_arrays):
-		marker_style = dict(color=color_array[pos], linestyle=linestyle_array[pos], linewidth=linewidth)
+		marker_style = dict(color=color_array[pos], linestyle=linestyle_array[pos], marker=markerstyle_array[pos], markevery=tick_interval, linewidth=linewidth)
 		draw_line = ax.plot(x_arrays[pos], line, label=legend_array[pos], **marker_style)
 	# set x-axis ticks to be every @tick_interval 
 	ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
@@ -274,7 +274,7 @@ if __name__ == "__main__":
 	y4_data = import_float_data("../data/perf_speed_window_unicorn/edge-3000-6000.txt")
 	y5_data = import_float_data("../data/perf_speed_window_unicorn/edge-5500-6000.txt")
 	y_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
-	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Interval = 500', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 5,500'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-window.pdf")
+	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', 'x', '*', '8', 's'], ['CamFlow', 'Interval = 500', 'Interval = 1,000', 'Interval = 3,000', 'Interval = 5,500'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-window.pdf")
 	
 	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. interval size (we call it batch in the paper)
 	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
@@ -289,8 +289,36 @@ if __name__ == "__main__":
 	y4_data = import_float_data("../data/perf_speed_interval_unicorn/edge-3000-6000.txt")
 	y5_data = import_float_data("../data/perf_speed_interval_unicorn/edge-3000-10000.txt")
 	y_arrays = [y1_data, y2_data, y3_data, y4_data, y5_data]
-	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', '.', '.', '.', '.'], ['CamFlow', 'Batch = 1,000', 'Batch = 3,000', 'Batch = 6,000', 'Batch = 10,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-interval.pdf")
+	# We cannot use this function because we need a different mark-interval for batch = 1000
+	# plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd'], ['--', '-', '-', '-', '-'], ['.', 'x', '*', '8', 's'], ['CamFlow', 'Batch = 1,000', 'Batch = 3,000', 'Batch = 6,000', 'Batch = 10,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-interval.pdf")
 	
+	fig, ax = plt.subplots()
+	# create x-axes for all plots in @data_arrays and plot all of them
+	marker_style = dict(color='#1f77b4', linestyle='--', marker='.', markevery=25, linewidth=1.0)
+	ax.plot(x_arrays[0], y_arrays[0], label='CamFlow', **marker_style)
+	marker_style = dict(color='#ff7f0e', linestyle='-', marker='x', markevery=120, linewidth=1.0)
+	ax.plot(x_arrays[1], y_arrays[1], label='Batch = 1,000', **marker_style)
+	marker_style = dict(color='#2ca02c', linestyle='-', marker='*', markevery=25, linewidth=1.0)
+	ax.plot(x_arrays[2], y_arrays[2], label='Batch = 3,000', **marker_style)
+	marker_style = dict(color='#d62728', linestyle='-', marker='8', markevery=25, linewidth=1.0)
+	ax.plot(x_arrays[3], y_arrays[3], label='Batch = 6,000', **marker_style)
+	marker_style = dict(color='#9467bd', linestyle='-', marker='s', markevery=25, linewidth=1.0)
+	ax.plot(x_arrays[4], y_arrays[4], label='Batch = 10,000', **marker_style)
+	# set x-axis ticks to be every @tick_interval 
+	ax.xaxis.set_major_locator(ticker.MultipleLocator(25))
+	# set x-axis smallest value to be 0
+	ax.set_xlim(left=0)
+	# set y-axis smallest value to be 0
+	ax.set_ylim(bottom=0)
+	# tick appearance
+	ax.tick_params(axis='x', labelrotation=45)
+	# create legend for both lines
+	ax.legend(loc='lower right', shadow=False)
+	# set labels
+	ax.set_xlabel('Time (seconds)')
+	ax.set_ylabel('Graph Size (# of Edges)')
+	plt.savefig("../plot/perf-speed-camflow-interval.pdf", format='pdf', bbox_inches='tight')
+
 	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. hop size
 	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
 	x2_data = import_float_data("../data/perf_speed_hop_unicorn/perf-wget-s-2000-h-1-w-3000-i-6000.txt")
@@ -302,7 +330,7 @@ if __name__ == "__main__":
 	y1_data = import_float_data("../data/perf_speed_camflow/edge-1000-6000.txt")
 	y2_data = import_float_data("../data/perf_speed_hop_unicorn/edge-3000-6000.txt")
 	y_arrays = [y1_data, y2_data, y2_data, y2_data, y2_data, y2_data]
-	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '.', '.', '.', '.', '.'], ['CamFlow', 'Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-hop.pdf")
+	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', 'x', '*', '8', 's', 'p'], ['CamFlow', 'Hop = 1', 'Hop = 2', 'Hop = 3', 'Hop = 4', 'Hop = 5'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-hop.pdf")
 
 	# CamFlow data generation speed vs. Unicorn data processing speed w.r.t. sketch size
 	x1_data = import_float_data("../data/perf_speed_camflow/ts-camflow-s-2000-h-3-w-1000-i-6000.txt")
@@ -315,7 +343,7 @@ if __name__ == "__main__":
 	y1_data = import_float_data("../data/perf_speed_camflow/edge-1000-6000.txt")
 	y2_data = import_float_data("../data/perf_speed_sketch_unicorn/edge-3000-6000.txt")
 	y_arrays = [y1_data, y2_data, y2_data, y2_data, y2_data, y2_data]
-	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', '.', '.', '.', '.', '.'], ['CamFlow', 'Sketch = 500', 'Sketch = 1,000', 'Sketch = 2,000', 'Sketch = 5,000', 'Sketch = 10,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-sketch.pdf")
+	plot_multilines_x(x_arrays, y_arrays, 25, 45, ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'], ['--', '-', '-', '-', '-', '-'], ['.', 'x', '*', '8', 's', 'p'], ['CamFlow', 'Sketch = 500', 'Sketch = 1,000', 'Sketch = 2,000', 'Sketch = 5,000', 'Sketch = 10,000'], 'lower right', 'Time (seconds)', 'Graph Size (# of Edges)', "../plot/perf-speed-camflow-sketch.pdf")
 	
 	# Unicorn CPU usage for various intervals
 	interval1_data = import_float_data("../data/perf_cpu_interval_unicorn/perf-wget-cpu-s-2000-h-3-w-3000-i-1000.txt")
