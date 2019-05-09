@@ -1,0 +1,225 @@
+This graph: sketch-download-432.txt is considered NORMAL (7/375).
+This graph: sketch-attack-308.txt is considered ABNORMAL at 106
+This graph: sketch-attack-398.txt is considered ABNORMAL at 107
+This graph: sketch-attack-333.txt is considered ABNORMAL at 95
+This graph: sketch-attack-314.txt is considered ABNORMAL at 99
+This graph: sketch-youtube-23.txt is considered NORMAL (2/375).
+This graph: sketch-vgame-261.txt is considered NORMAL (3/375).
+This graph: sketch-download-446.txt is considered NORMAL (1/375).
+This graph: sketch-attack-300.txt is considered ABNORMAL at 101
+This graph: sketch-gmail-106.txt is considered NORMAL (5/375).
+This graph: sketch-vgame-235.txt is considered NORMAL (2/375).
+This graph: sketch-cnn-509.txt is considered NORMAL (17/375).
+This graph: sketch-gmail-144.txt is considered NORMAL (43/375).
+This graph: sketch-vgame-295.txt is considered NORMAL (3/375).
+This graph: sketch-youtube-29.txt is considered NORMAL (10/375).
+This graph: sketch-download-409.txt is considered NORMAL (7/375).
+This graph: sketch-attack-357.txt is considered ABNORMAL at 97
+This graph: sketch-download-403.txt is considered NORMAL (2/375).
+This graph: sketch-download-471.txt is considered NORMAL (3/375).
+This graph: sketch-youtube-48.txt is considered NORMAL (2/375).
+This graph: sketch-attack-331.txt is considered ABNORMAL at 104
+This graph: sketch-vgame-207.txt is considered NORMAL (1/375).
+This graph: sketch-attack-310.txt is considered ABNORMAL at 104
+This graph: sketch-cnn-589.txt is considered NORMAL (11/375).
+This graph: sketch-attack-368.txt is considered ABNORMAL at 106
+This graph: sketch-gmail-114.txt is considered NORMAL (40/375).
+This graph: sketch-download-445.txt is considered NORMAL (1/375).
+This graph: sketch-gmail-129.txt is considered NORMAL (32/375).
+This graph: sketch-attack-321.txt is considered ABNORMAL at 102
+This graph: sketch-cnn-575.txt is considered NORMAL (11/375).
+This graph: sketch-download-414.txt is considered NORMAL (7/375).
+This graph: sketch-attack-391.txt is considered ABNORMAL at 102
+This graph: sketch-attack-312.txt is considered ABNORMAL at 103
+This graph: sketch-attack-318.txt is considered ABNORMAL at 104
+This graph: sketch-gmail-142.txt is considered NORMAL (27/375).
+This graph: sketch-attack-342.txt is considered ABNORMAL at 101
+This graph: sketch-youtube-8.txt is considered NORMAL (2/375).
+This graph: sketch-youtube-86.txt is considered NORMAL (2/375).
+This graph: sketch-download-452.txt is considered NORMAL (1/375).
+This graph: sketch-youtube-67.txt is considered NORMAL (10/375).
+This graph: sketch-attack-376.txt is considered ABNORMAL at 104
+This graph: sketch-attack-356.txt is considered ABNORMAL at 106
+This graph: sketch-gmail-139.txt is considered NORMAL (5/375).
+This graph: sketch-attack-375.txt is considered ABNORMAL at 99
+This graph: sketch-youtube-92.txt is considered NORMAL (3/375).
+This graph: sketch-vgame-205.txt is considered NORMAL (2/375).
+This graph: sketch-cnn-556.txt is considered NORMAL (3/375).
+This graph: sketch-youtube-2.txt is considered NORMAL (7/375).
+This graph: sketch-attack-330.txt is considered NORMAL (3/375).
+This graph: sketch-vgame-237.txt is considered NORMAL (2/375).
+This graph: sketch-attack-365.txt is considered ABNORMAL at 98
+This graph: sketch-cnn-565.txt is considered NORMAL (1/375).
+This graph: sketch-youtube-38.txt is considered NORMAL (2/375).
+This graph: sketch-youtube-40.txt is considered NORMAL (3/375).
+This graph: sketch-attack-305.txt is considered ABNORMAL at 106
+This graph: sketch-attack-317.txt is considered ABNORMAL at 102
+This graph: sketch-youtube-35.txt is considered NORMAL (12/375).
+This graph: sketch-vgame-254.txt is considered NORMAL (2/375).
+This graph: sketch-attack-302.txt is considered ABNORMAL at 103
+This graph: sketch-gmail-161.txt is considered NORMAL (5/375).
+This graph: sketch-attack-385.txt is considered ABNORMAL at 100
+This graph: sketch-vgame-243.txt is considered NORMAL (7/375).
+This graph: sketch-attack-332.txt is considered ABNORMAL at 100
+This graph: sketch-vgame-227.txt is considered NORMAL (3/375).
+This graph: sketch-attack-340.txt is considered ABNORMAL at 100
+This graph: sketch-cnn-585.txt is considered NORMAL (12/375).
+This graph: sketch-gmail-180.txt is considered NORMAL (42/375).
+This graph: sketch-gmail-127.txt is considered NORMAL (33/375).
+This graph: sketch-youtube-64.txt is considered NORMAL (3/375).
+This graph: sketch-cnn-546.txt is considered NORMAL (14/375).
+This graph: sketch-gmail-169.txt is considered NORMAL (41/375).
+This graph: sketch-download-473.txt is considered ABNORMAL at 60
+This graph: sketch-vgame-263.txt is considered NORMAL (1/375).
+This graph: sketch-download-472.txt is considered NORMAL (1/375).
+This graph: sketch-vgame-212.txt is considered NORMAL (2/375).
+This graph: sketch-vgame-259.txt is considered NORMAL (4/375).
+This graph: sketch-cnn-563.txt is considered NORMAL (12/375).
+This graph: sketch-vgame-219.txt is considered NORMAL (2/375).
+This graph: sketch-attack-382.txt is considered ABNORMAL at 99
+This graph: sketch-youtube-59.txt is considered NORMAL (3/375).
+This graph: sketch-attack-323.txt is considered ABNORMAL at 106
+This graph: sketch-cnn-536.txt is considered NORMAL (14/375).
+This graph: sketch-download-485.txt is considered NORMAL (4/375).
+This graph: sketch-attack-307.txt is considered ABNORMAL at 101
+This graph: sketch-cnn-537.txt is considered NORMAL (12/375).
+This graph: sketch-attack-320.txt is considered ABNORMAL at 99
+This graph: sketch-vgame-282.txt is considered NORMAL (2/375).
+This graph: sketch-attack-379.txt is considered ABNORMAL at 106
+This graph: sketch-youtube-51.txt is considered NORMAL (9/375).
+This graph: sketch-attack-327.txt is considered ABNORMAL at 100
+This graph: sketch-gmail-112.txt is considered NORMAL (5/375).
+This graph: sketch-vgame-293.txt is considered NORMAL (2/375).
+This graph: sketch-youtube-70.txt is considered NORMAL (11/375).
+This graph: sketch-attack-354.txt is considered ABNORMAL at 104
+This graph: sketch-gmail-109.txt is considered NORMAL (5/375).
+This graph: sketch-cnn-569.txt is considered NORMAL (11/375).
+This graph: sketch-download-462.txt is considered NORMAL (2/375).
+This graph: sketch-attack-355.txt is considered ABNORMAL at 99
+This graph: sketch-attack-335.txt is considered ABNORMAL at 101
+This graph: sketch-attack-359.txt is considered ABNORMAL at 101
+This graph: sketch-gmail-101.txt is considered NORMAL (27/375).
+This graph: sketch-vgame-273.txt is considered NORMAL (2/375).
+This graph: sketch-attack-361.txt is considered ABNORMAL at 102
+This graph: sketch-attack-362.txt is considered ABNORMAL at 102
+This graph: sketch-attack-346.txt is considered ABNORMAL at 102
+This graph: sketch-download-417.txt is considered NORMAL (7/375).
+This graph: sketch-attack-348.txt is considered ABNORMAL at 103
+This graph: sketch-attack-322.txt is considered ABNORMAL at 105
+This graph: sketch-attack-309.txt is considered ABNORMAL at 103
+This graph: sketch-attack-329.txt is considered ABNORMAL at 104
+This graph: sketch-attack-395.txt is considered ABNORMAL at 105
+This graph: sketch-download-424.txt is considered NORMAL (7/375).
+This graph: sketch-attack-381.txt is considered ABNORMAL at 105
+This graph: sketch-attack-345.txt is considered ABNORMAL at 105
+This graph: sketch-youtube-79.txt is considered NORMAL (3/375).
+This graph: sketch-attack-371.txt is considered ABNORMAL at 102
+This graph: sketch-attack-343.txt is considered ABNORMAL at 102
+This graph: sketch-download-495.txt is considered NORMAL (4/375).
+This graph: sketch-cnn-500.txt is considered NORMAL (1/375).
+This graph: sketch-gmail-186.txt is considered NORMAL (32/375).
+This graph: sketch-gmail-158.txt is considered NORMAL (43/375).
+This graph: sketch-attack-396.txt is considered ABNORMAL at 102
+This graph: sketch-attack-301.txt is considered ABNORMAL at 101
+This graph: sketch-attack-373.txt is considered ABNORMAL at 102
+This graph: sketch-attack-337.txt is considered ABNORMAL at 101
+This graph: sketch-download-461.txt is considered NORMAL (2/375).
+This graph: sketch-attack-315.txt is considered NORMAL (5/375).
+This graph: sketch-attack-344.txt is considered ABNORMAL at 103
+This graph: sketch-attack-390.txt is considered ABNORMAL at 101
+This graph: sketch-attack-383.txt is considered ABNORMAL at 95
+This graph: sketch-attack-367.txt is considered ABNORMAL at 98
+This graph: sketch-vgame-239.txt is considered NORMAL (3/375).
+This graph: sketch-attack-380.txt is considered ABNORMAL at 101
+This graph: sketch-attack-360.txt is considered ABNORMAL at 102
+This graph: sketch-cnn-531.txt is considered NORMAL (15/375).
+This graph: sketch-download-469.txt is considered NORMAL (1/375).
+This graph: sketch-vgame-250.txt is considered NORMAL (3/375).
+This graph: sketch-cnn-543.txt is considered NORMAL (9/375).
+This graph: sketch-attack-378.txt is considered ABNORMAL at 99
+This graph: sketch-cnn-594.txt is considered NORMAL (12/375).
+This graph: sketch-attack-392.txt is considered ABNORMAL at 98
+This graph: sketch-attack-339.txt is considered ABNORMAL at 101
+This graph: sketch-youtube-24.txt is considered NORMAL (1/375).
+This graph: sketch-attack-358.txt is considered ABNORMAL at 105
+This graph: sketch-attack-399.txt is considered NORMAL (8/375).
+This graph: sketch-youtube-75.txt is considered NORMAL (15/375).
+This graph: sketch-cnn-570.txt is considered NORMAL (12/375).
+This graph: sketch-attack-363.txt is considered ABNORMAL at 101
+This graph: sketch-cnn-522.txt is considered NORMAL (12/375).
+This graph: sketch-vgame-247.txt is considered NORMAL (1/375).
+This graph: sketch-download-499.txt is considered NORMAL (4/375).
+This graph: sketch-gmail-136.txt is considered NORMAL (35/375).
+This graph: sketch-attack-393.txt is considered ABNORMAL at 102
+This graph: sketch-attack-306.txt is considered ABNORMAL at 100
+This graph: sketch-gmail-171.txt is considered NORMAL (42/375).
+This graph: sketch-attack-353.txt is considered ABNORMAL at 102
+This graph: sketch-attack-325.txt is considered ABNORMAL at 102
+This graph: sketch-vgame-222.txt is considered NORMAL (2/375).
+This graph: sketch-vgame-266.txt is considered NORMAL (2/375).
+This graph: sketch-cnn-577.txt is considered NORMAL (14/375).
+This graph: sketch-cnn-596.txt is considered NORMAL (12/375).
+This graph: sketch-vgame-276.txt is considered NORMAL (1/375).
+This graph: sketch-youtube-89.txt is considered NORMAL (8/375).
+This graph: sketch-attack-350.txt is considered NORMAL (11/375).
+This graph: sketch-attack-397.txt is considered ABNORMAL at 102
+This graph: sketch-attack-336.txt is considered ABNORMAL at 106
+This graph: sketch-vgame-287.txt is considered NORMAL (2/375).
+This graph: sketch-cnn-583.txt is considered NORMAL (1/375).
+This graph: sketch-cnn-516.txt is considered NORMAL (5/375).
+This graph: sketch-download-426.txt is considered NORMAL (6/375).
+This graph: sketch-attack-366.txt is considered ABNORMAL at 101
+This graph: sketch-attack-338.txt is considered ABNORMAL at 102
+This graph: sketch-attack-389.txt is considered ABNORMAL at 99
+This graph: sketch-gmail-153.txt is considered NORMAL (5/375).
+This graph: sketch-attack-394.txt is considered ABNORMAL at 98
+This graph: sketch-gmail-165.txt is considered NORMAL (18/375).
+This graph: sketch-attack-388.txt is considered NORMAL (1/375).
+This graph: sketch-attack-352.txt is considered ABNORMAL at 97
+This graph: sketch-attack-324.txt is considered ABNORMAL at 103
+This graph: sketch-gmail-124.txt is considered NORMAL (17/375).
+This graph: sketch-attack-369.txt is considered ABNORMAL at 103
+This graph: sketch-gmail-195.txt is considered NORMAL (13/375).
+This graph: sketch-attack-316.txt is considered ABNORMAL at 100
+This graph: sketch-vgame-232.txt is considered NORMAL (2/375).
+This graph: sketch-vgame-215.txt is considered NORMAL (2/375).
+This graph: sketch-attack-372.txt is considered ABNORMAL at 102
+This graph: sketch-attack-313.txt is considered ABNORMAL at 103
+This graph: sketch-attack-370.txt is considered ABNORMAL at 101
+This graph: sketch-attack-304.txt is considered ABNORMAL at 100
+This graph: sketch-attack-384.txt is considered ABNORMAL at 106
+This graph: sketch-attack-303.txt is considered NORMAL (1/375).
+This graph: sketch-attack-326.txt is considered ABNORMAL at 97
+This graph: sketch-attack-341.txt is considered ABNORMAL at 102
+This graph: sketch-attack-386.txt is considered ABNORMAL at 100
+This graph: sketch-cnn-513.txt is considered NORMAL (15/375).
+This graph: sketch-attack-374.txt is considered ABNORMAL at 103
+This graph: sketch-youtube-84.txt is considered NORMAL (10/375).
+This graph: sketch-attack-311.txt is considered NORMAL (4/375).
+This graph: sketch-attack-349.txt is considered ABNORMAL at 98
+This graph: sketch-download-435.txt is considered NORMAL (1/375).
+This graph: sketch-attack-364.txt is considered ABNORMAL at 102
+This graph: sketch-attack-387.txt is considered ABNORMAL at 102
+This graph: sketch-gmail-117.txt is considered NORMAL (41/375).
+This graph: sketch-youtube-13.txt is considered NORMAL (3/375).
+This graph: sketch-download-478.txt is considered NORMAL (2/375).
+This graph: sketch-attack-347.txt is considered ABNORMAL at 106
+This graph: sketch-cnn-528.txt is considered NORMAL (11/375).
+This graph: sketch-youtube-16.txt is considered NORMAL (7/375).
+This graph: sketch-attack-319.txt is considered ABNORMAL at 107
+This graph: sketch-attack-351.txt is considered ABNORMAL at 102
+This graph: sketch-download-457.txt is considered NORMAL (1/375).
+This graph: sketch-youtube-56.txt is considered NORMAL (9/375).
+This graph: sketch-youtube-97.txt is considered NORMAL (5/375).
+This graph: sketch-cnn-559.txt is considered NORMAL (15/375).
+This graph: sketch-download-428.txt is considered NORMAL (3/375).
+This graph: sketch-gmail-177.txt is considered NORMAL (37/375).
+This graph: sketch-cnn-503.txt is considered NORMAL (17/375).
+This graph: sketch-youtube-43.txt is considered NORMAL (2/375).
+This graph: sketch-gmail-198.txt is considered NORMAL (40/375).
+This graph: sketch-gmail-148.txt is considered NORMAL (4/375).
+This graph: sketch-download-480.txt is considered ABNORMAL at 50
+This graph: sketch-attack-328.txt is considered ABNORMAL at 101
+This graph: sketch-attack-334.txt is considered ABNORMAL at 96
+This graph: sketch-download-441.txt is considered NORMAL (1/375).
+This graph: sketch-attack-377.txt is considered ABNORMAL at 102
